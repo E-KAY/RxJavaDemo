@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Schedulers -->
+    <string name="str_mainlist_schedulers">Schedulers</string>
+
+
+    <!-- Schedulers Detail-->
+    <string name="str_schedulers_type">Scheduler Type</string>
+    <string name="str_schedulers_effect">Effect</string>
+
+    <string name="str_schedulers_computation">Schedulers.computation()</string>
+    <string name="str_schedulers_computation_effect">
+        Creates and returns a Scheduler intended for computational work.\n
+        This can be used for event-loops, processing callbacks and other computational work.\n
+        Do not perform IO-bound work on this scheduler. Use io() instead.\n
+        Unhandled errors will be delivered to the scheduler Thread\'s Thread.UncaughtExceptionHandler.</string>
+
+    <string name="str_schedulers_from">Schedulers.from(executor)</string>
+    <string name="str_schedulers_from_effect">Converts an Executor into a new Scheduler instance.</string>
+
+    <string name="str_schedulers_immediate">Schedulers.immediate()</string>
+    <string name="str_schedulers_immediate_effect">
+        Creates and returns a Scheduler that executes work immediately on the current thread.</string>
+
+    <string name="str_schedulers_io">Schedulers.io()</string>
+    <string name="str_schedulers_io_effect">
+        Creates and returns a Scheduler intended for IO-bound work.\n
+        The implementation is backed by an Executor thread-pool that will grow as needed.\n
+        This can be used for asynchronously performing blocking IO.\n
+        Do not perform computational work on this scheduler. Use computation() instead.\n
+        Unhandled errors will be delivered to the scheduler Thread\'s Thread.UncaughtExceptionHandler.
+
+    </string>
+
+    <string name="str_schedulers_newThread">Schedulers.newThread()</string>
+    <string name="str_schedulers_newThread_effect">
+        Creates and returns a Scheduler that creates a new Thread for each unit of work.\n
+        Unhandled errors will be delivered to the scheduler Thread\'s Thread.UncaughtExceptionHandler.
+    </string>
+
+    <string name="str_schedulers_trampoline">Schedulers.trampoline()</string>
+    <string name="str_schedulers_trampoline_effect">
+        Creates and returns a Scheduler that queues work on the current thread to be executed after the current work completes.
+    </string>
+</resources>

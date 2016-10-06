@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/RJDStyle_Toolbar"
+        android:theme="@style/RJDTheme_ActionBar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+        <LinearLayout
+            style="@style/RJDSTYLE_Table_Row">
+            <TextView
+                style="@style/RJDSTYLE_Schedulers_Type"
+                android:text="@string/str_schedulers_type"
+                android:textStyle="bold"/>
+
+            <View style="@style/RJDStyle_Divider_Dark_Vertical"/>
+
+            <TextView
+                style="@style/RJDSTYLE_Schedulers_Effect"
+                android:text="@string/str_schedulers_effect"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout
+            style="@style/RJDSTYLE_Table_Row">
+            <TextView
+                style="@style/RJDSTYLE_Schedulers_Type"
+                android:text="@string/str_schedulers_computation"/>
+
+            <View style="@style/RJDStyle_Divider_Dark_Vertical"/>
+
+            <TextView
+                style="@style/RJDSTYLE_Schedulers_Effect"
+                android:text="@string/str_schedulers_computation_effect"/>
+        </LinearLayout>
+        <LinearLayout
+            style="@style/RJDSTYLE_Table_Row">
+            <TextView
+                style="@style/RJDSTYLE_Schedulers_Type"
+                android:text="@string/str_schedulers_from"/>
+
+            <View style="@style/RJDStyle_Divider_Dark_Vertical"/>
+
+            <TextView
+                style="@style/RJDSTYLE_Schedulers_Effect"
+                android:text="@string/str_schedulers_from_effect"/>
+        </LinearLayout>
+        <LinearLayout
+            style="@style/RJDSTYLE_Table_Row">
+            <TextView
+                style="@style/RJDSTYLE_Schedulers_Type"
+                android:text="@string/str_schedulers_immediate"/>
+
+            <View style="@style/RJDStyle_Divider_Dark_Vertical"/>
+
+            <TextView
+                style="@style/RJDSTYLE_Schedulers_Effect"
+                android:text="@string/str_schedulers_immediate_effect"/>
+        </LinearLayout>
+        <LinearLayout
+            style="@style/RJDSTYLE_Table_Row">
+            <TextView
+                style="@style/RJDSTYLE_Schedulers_Type"
+                android:text="@string/str_schedulers_io"/>
+
+            <View style="@style/RJDStyle_Divider_Dark_Vertical"/>
+
+            <TextView
+                style="@style/RJDSTYLE_Schedulers_Effect"
+                android:text="@string/str_schedulers_io_effect"/>
+        </LinearLayout>
+        <LinearLayout
+            style="@style/RJDSTYLE_Table_Row">
+            <TextView
+                style="@style/RJDSTYLE_Schedulers_Type"
+                android:text="@string/str_schedulers_newThread"/>
+
+            <View style="@style/RJDStyle_Divider_Dark_Vertical"/>
+
+            <TextView
+                style="@style/RJDSTYLE_Schedulers_Effect"
+                android:text="@string/str_schedulers_newThread"/>
+        </LinearLayout>
+        <LinearLayout
+            style="@style/RJDSTYLE_Table_Row">
+            <TextView
+                style="@style/RJDSTYLE_Schedulers_Type"
+                android:text="@string/str_schedulers_trampoline"/>
+
+            <View style="@style/RJDStyle_Divider_Dark_Vertical"/>
+
+            <TextView
+                style="@style/RJDSTYLE_Schedulers_Effect"
+                android:text="@string/str_schedulers_trampoline_effect"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

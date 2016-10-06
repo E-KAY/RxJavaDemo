@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">RxJava Demo</string>
+
+    <string name="str_ok">OK</string>
+    <string name="str_cancel">Cancel</string>
+    <string name="str_search">Search</string>
+
+
+    <string name="str_example_format">Example %d</string>
+
+    <string name="str_example_1">Example 1</string>
+    <string name="str_example_2">Example 2</string>
+    <string name="str_example_3">Example 3</string>
+    <string name="str_example_4">Example 4</string>
+    <string name="str_example_5">Example 5</string>
+    <string name="str_example_6">Example 6</string>
+    <string name="str_example_7">Example 7</string>
+    <string name="str_example_8">Example 8</string>
+    <string name="str_example_9">Example 9</string>
+    <string name="str_example_10">Example 10</string>
+    <string name="str_example_11">Example 11</string>
+    <string name="str_example_12">Example 12</string>
+    <string name="str_example_13">Example 13</string>
+
+    <!-- When main list header title resId is 0 -->
+    <string name="str_mainlist_unkonwn_header">Unkonwn Header</string>
+
+</resources>

@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "com.nd.android.rxjavademo"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+
+def support_version = "23.2.1"
+dependencies {
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+
+    compile "com.android.support:appcompat-v7:${support_version}"
+    compile "com.android.support:design:${support_version}"
+
+    compile 'io.reactivex:rxandroid:1.2.0'
+    compile 'io.reactivex:rxjava:1.1.4'
+
+    compile('com.afollestad.material-dialogs:commons:0.8.5.1@aar') {
+        exclude group: 'com.android.support'
+        transitive = true;
+        changing = true;
+    }
+
+    compile ('se.emilsjolander:stickylistheaders:2.7.0'){
+        exclude group: 'com.android.support'
+        transitive = true;
+        changing = true;
+    }
+}

@@ -1,0 +1,77 @@
+<resources>
+
+    <!-- base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    </style>
+
+
+    <!-- Toolbar style. -->
+    <style name="RJDStyle_Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:minHeight">50dp</item>
+        <item name="android:background">@color/color_gun_gray</item>
+    </style>
+
+    <!-- list view style. -->
+    <style name="RJDStyle_List">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+        <item name="android:listSelector">@drawable/bg_white_ripple</item>
+        <item name="android:scrollingCache">false</item>
+        <item name="android:divider">@null</item>
+        <item name="android:dividerHeight">0dp</item>
+        <item name="android:fadingEdge">none</item>
+    </style>
+
+    <!-- button style. -->
+    <style name="RJDStyle_Button" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/color_gun_gray</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:minHeight">0dip</item>
+        <item name="android:minWidth">0dip</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- divider line style. -->
+    <style name="RJDStyle_Divider_Light">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">2px</item>
+        <item name="android:background">@color/color_divider_line_light</item>
+    </style>
+
+    <!-- vertical divider line style. -->
+    <style name="RJDStyle_Divider_Dark_Vertical">
+        <item name="android:layout_width">2px</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/color_divider_line_dark</item>
+    </style>
+
+    <style name="RJDSTYLE_Table_Row">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@drawable/bg_table_row</item>
+    </style>
+
+    <style name="RJDSTYLE_Schedulers_Type">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">6</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+        <item name="android:textColor">@color/color_gun_gray</item>
+    </style>
+
+    <style name="RJDSTYLE_Schedulers_Effect">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">4</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+        <item name="android:textColor">@color/color_gun_gray</item>
+    </style>
+
+</resources>

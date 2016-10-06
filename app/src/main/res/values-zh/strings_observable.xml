@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="str_mainlist_Observable_create_info">Returns an Observable that will execute the specified function when a Subscriber subscribes to it.</string>
+
+
+    <string name="str_mainlist_Observable_all_info">
+        all 操作符根据一个函数对源Observable发射的所有数据进行判断，最终返回的结果就是这个判断结果。
+        这个函数使用发射的数据作为参数，内部判断所有的数据是否满足我们定义好的判断条件，如果全部都满足则返回true，否则就返回false。
+    </string>
+
+    <string name="str_mainlist_Observable_amb_info" formatted="false">
+        <![CDATA[
+        amb(Observable<? extends R> o1, Observable<? extends R> o2,…,Observable<? extends R> o9):\n
+        将至多9个 Observable 结合起来，让他们竞争。
+        \n\n
+        amb(java.lang.Iterable<? extends Observable<? extends R>> sources):\n
+        将 Iterable 中所有的 Observable 结合起来，让他们竞争。
+        \n\n
+        ambWith(Observable<? extends R> t1):\n
+        Observable.amb(o1,o2) 和 o1.ambWith(o2) 是等效的
+        \n\n
+        最终哪个 Observable 首先发射了数据（包括 onError 和 onComplete )就会继续发射这个 Observable 的数据，其他的 Observable 所发射的数据都会别丢弃
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_asObservable_info">
+        由于 Observable 是不可变的，所以 asObservable 函数是为了把一个 Observable 对象包装起来并安全的分享给其他人使用。
+    </string>
+
+    <string name="str_mainlist_Observable_buffer_info">
+        将数据按照指定的规则做一个缓存，然后将缓存的数据作为一个集合发射出去
+    </string>
+
+    <string name="str_mainlist_Observable_cast_info">
+        cast 操作符主要是做类型转换的，传入参数为要转换的数据类型 class，
+        如果源 Observable 产生的结果不能转成指定的 class，则会抛出 ClassCastException 运行时异常
+    </string>
+
+    <string name="str_mainlist_Observable_collect_info">
+        collect 用来将源 Observable 发射的数据给收集到一个数据结构里面，需要使用两个参数：
+        \n1)产生收集数据结构的函数
+        \n2)接收第一个函数产生的数据结构和源Observable发射的数据作为参数的函数。
+    </string>
+
+    <string name="str_mainlist_Observable_combineLatest_info">
+        当两个 Observables 中的任何一个发射了一个数据时，通过一个指定的函数组合每个 Observable 发射的最新数据（一共两个数据），然后发射这个函数的结果
+        \n\n
+        必须满足两个条件：
+        \n1)所有的Observable都发射过数据。
+        \n2)满足条件1的时候任何一个 Observable 发射一个数据，就将所有 Observable 最新发射的数据按照提供的函数组装起来发射出去。
+        \n\n
+        在这两个条件下,可能会忽略掉一些发射的数据.
+    </string>
+
+    <string name="str_mainlist_Observable_compose_info">
+        通过 Transform，对源 Observable 进行操作，保证Rx的链式结构特征。详情请看代码。
+    </string>
+
+    <string name="str_mainlist_Observable_concat_info">
+        不交错的连接多个 Observable 的数据，按照先后顺序，逐个检索执行
+    </string>
+
+    <string name="str_mainlist_Observable_concatMap_info">
+        concatMap 是把源 Observable 产生的结果转换成多个 Observable，
+        然后把这多个 Observable “扁平化”成一个 Observable，并依次提交产生的结果给订阅者。
+        concatMap() 函数解决了 flatMap() 的交叉问题，提供了一种能够把发射的值连续在一起的铺平函数，而不是合并它们
+    </string>
+
+    <string name="str_mainlist_Observable_contains_info">
+        用来判断源 Observable 所发射的数据是否包含某一个数据，如果包含会返回 true，如果源 Observable 已经结束了却还没有发射这个数据则返回 false。
+    </string>
+
+    <string name="str_mainlist_Observable_count_info">
+        Count 操作符用来统计源 Observable 发射了多少个数据，最后将数目给发射出来；
+        如果源 Observable 发射错误，则会将错误直接报出来；在源 Observable 没有终止前，count 是不会发射统计数据的。
+    </string>
+
+    <string name="str_mainlist_Observable_debounce_info">
+        debounce 操作符对源 Observable 每产生一个结果后，如果在规定的间隔时间内没有别的结果产生，则把这个结果提交给订阅者处理，否则忽略该结果。
+        \n
+        值得注意的是，如果源 Observable 产生的最后一个结果后在规定的时间间隔内调用了 onCompleted，那么通过 debounce 操作符也会把这个结果提交给订阅者。
+    </string>
+
+    <string name="str_mainlist_Observable_defaultIfEmpty_info">
+        defaultIfEmpty 操作接受一个备用数据，在原 Observable 没有发射任何数据正常
+        终止（以 onCompleted 的形式），该操作符以备用数据创建一个 Observable 并将数据发射出去。
+    </string>
+
+    <string name="str_mainlist_Observable_defer_info">
+        defer 操作符是直到有订阅者订阅时，才通过 Observable 的工厂方法创建 Observable 并执行，defer 操作符能够保证 Observable 的状态是最新的
+    </string>
+
+    <string name="str_mainlist_Observable_dematerialize_info">
+        dematerialize 操作符是 materialize 操作符的逆向过程,将原 Observable 发射的 Notification 对象还原成 Observable 的通知。
+        \n\n
+        dematerialize 默认不在任何特定的调度器 (Scheduler) 上执行。
+    </string>
+
+    <string name="str_mainlist_Observable_distinct_info">
+        distinct 操作符对源 Observable 产生的结果进行过滤，把重复的结果过滤掉，只输出不重复的结果给订阅者，非常类似于SQL里的distinct关键字。
+    </string>
+
+    <string name="str_mainlist_Observable_distinctUntilChanged_info" formatted="false">
+        distinctUntilChanged 操作符对源 Observable 产生的结果进行条件过滤，把与前一个 Observable 某条件重复的结果过滤掉，只输出不重复的结果给订阅者。
+    </string>
+
+    <string name="str_mainlist_Observable_elementAt_info" formatted="false">
+        elementAt 操作符在源 Observable 产生的结果中，仅仅把指定索引的结果提交给订阅者，索引是从0开始的。
+        \n
+        elementAtOrDefault 操作符实现当索引结果不存在则发送一个默认数据
+    </string>
+
+    <string name="str_mainlist_Observable_empty_info">
+        创建一个什么都不做直接发送 onCompleted 的 Observable，不做具体说明了
+    </string>
+
+    <string name="str_mainlist_Observable_error_info">
+        创建一个什么都不做直接发送 onError 的 Observable，不做具体说明了
+    </string>
+
+    <string name="str_mainlist_Observable_exists_info">
+        如果源 Observable 发射的数据中有一个满足条件，则 exists 就返回 true，和 all 操作符 类似
+    </string>
+
+    <string name="str_mainlist_Observable_filter_info">
+        filter 操作符是对源 Observable 产生的结果自定义规则进行过滤，只有满足条件的结果才会提交给订阅者
+    </string>
+
+    <string name="str_mainlist_Observable_first_info">
+        first 操作符只会返回第一条数据，并且还可以返回满足条件的第一条数据。前面 concat 操作符实现三级缓存的例子里，就是结合 first 操作符来实现。
+    </string>
+
+    <string name="str_mainlist_Observable_firstOrDefault_info">
+        firstOrDefault 与 first类似，但是在 Observable 没有发射任何数据时发射一个你在参数中指定的默认值。
+    </string>
+
+    <string name="str_mainlist_Observable_flatMap_info">
+        flatMap 接收一个 Observable 的输出作为输入，同时输出另外一个 Observable。
+        可以将数据根据自身需求重新定义规则进行转化后再发射出去。其原理就是将这个 Observable 转化为多个以源 Observable 发射的数据作为源数据的 Observable，
+        然后再将这多个 Observable 发射的数据整合发射出来，需要注意的是最后的顺序可能会交错地发射出来，如果对顺序有严格的要求的话可以使用 concatMap 操作符
+    </string>
+
+    <string name="str_mainlist_Observable_flatMapIterable_info">
+        flatMapIterable 和 flatMap 基相同，不同之处为其转化的多个 Observable 是使用 Iterable 作为源数据的。
+    </string>
+
+    <string name="str_mainlist_Observable_forEach_info">
+         forEach 为 subscribe 的一个没有返回 Subscription 的别名。也是对Observable进行订阅操作。
+    </string>
+
+    <string name="str_mainlist_Observable_from_info">
+         from 操作符可以接收一个集合作为参数，然后逐一发送出来。
+    </string>
+
+    <string name="str_mainlist_Observable_groupBy_info">
+        groupBy 操作符是对源 Observable 产生的结果进行分组，形成一个类型为 GroupedObservable 的结果集，
+        GroupedObservable 中存在一个方法为 getKey()，可以通过该方法获取结果集的Key值（类似于 HashMap 的 key )。
+        值得注意的是，由于结果集中的 GroupedObservable 是把分组结果缓存起来，
+        如果对每一个 GroupedObservable 不进行处理（既不订阅执行也不对其进行别的操作符运算），就有可能出现内存泄露。
+        因此，如果你对某个 GroupedObservable 不进行处理，最好是对其使用操作符take(0)处理。
+    </string>
+
+    <string name="str_mainlist_Observable_groupJoin_info">
+        groupJoin 操作符和 join 操作符很类似，也是将两个Ovservable产生的结果进行合并，参数上有一些不同。具体看代码例子。
+    </string>
+
+    <string name="str_mainlist_Observable_ignoreElements_info">
+        忽略所有的数据，只保留终止通知( onError 或 onCompleted )
+    </string>
+
+    <string name="str_mainlist_Observable_interval_info">
+        interval 操作符是用来创建一个按指定时间间隔发射整数序列的 Observable
+        这个比较好理解，interval 也是用来创建 Observable 的，并且也可以延迟发送。
+        但 interval 是按周期执行的，所以可以这么认为：interval 是一个可以指定线程的加强版TimerTask
+    </string>
+
+    <string name="str_mainlist_Observable_isEmpty_info">
+        isEmpty 操作符用来判断源 Observable 是否发射过数据，没有发射过数据返回 true.
+    </string>
+
+    <string name="str_mainlist_Observable_join_info">
+        join 操作符把类似于 combineLatest 操作符，也是两个 Observable 产生的结果进行合并，
+        合并的结果组成一个新的 Observable，但是 join 操作符可以控制每个 Observable 产生结果的生命周期，
+        在每个结果的生命周期内，可以与另一个 Observable 产生的结果按照一定的规则进行合并
+    </string>
+
+    <string name="str_mainlist_Observable_just_info">
+        将传入的若干个参数依次发送出来
+    </string>
+
+    <string name="str_mainlist_Observable_last_info">
+        last 操作符是用来获取最后一个数据或者满足指定条件的最后一个数据
+    </string>
+
+    <string name="str_mainlist_Observable_lastOrDefault_info">
+        lastOrDefault 和 last 操作符类似，只发射最后的一项数据，但增加了如果 Observable 为空就发射默认值的能力
+    </string>
+
+
+
+
+
+
+
+
+
+
+
+
+    <string name="str_mainlist_Observable_naver_info">
+        创建一个不发射任何数据的Observable
+    </string>
+
+    <string name="str_mainlist_Observable_subscribe_info">
+        Rxjava是对观察者模式的一个高度的抽象，它包括两个非常重要的类：
+        Observable(被观察者)和Observer(观察者)，而这两个类的对象之间是通过subscribe方法来建立订阅关系的连接。
+        详情请看代码。
+    </string>
+</resources>

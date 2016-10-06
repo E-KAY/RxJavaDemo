@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <color name="color_gun_gray">#333333</color>
+    <color name="color_gun_gray_light">#666666</color>
+    <color name="color_dark_gray">#999999</color>
+    <color name="color_white">#ffffff</color>
+
+
+    <color name="color_divider_line_light">#eeeeee</color>
+    <color name="color_divider_line_dark">#dddddd</color>
+
+    <color name="color_blue">#38adff</color>
+    <color name="color_red">#f43531</color>
+
+
+    <color name="color_bg_white_ripple_pressed">#dddddd</color>
+    <color name="color_bg_white_ripple_normal">#ffffff</color>
+    <color name="color_ripple">#ebeced</color>
+</resources>

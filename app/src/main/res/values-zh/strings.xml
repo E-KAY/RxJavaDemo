@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">RxJava Demo</string>
+
+    <string name="str_ok">确认</string>
+    <string name="str_cancel">取消</string>
+    <string name="str_search">搜索</string>
+
+    <string name="str_example_1">例子 1</string>
+    <string name="str_example_2">例子 2</string>
+    <string name="str_example_3">例子 3</string>
+    <string name="str_example_4">例子 4</string>
+    <string name="str_example_5">例子 5</string>
+    <string name="str_example_6">例子 6</string>
+    <string name="str_example_7">例子 7</string>
+    <string name="str_example_8">例子 8</string>
+    <string name="str_example_9">例子 9</string>
+    <string name="str_example_10">例子 10</string>
+    <string name="str_example_11">例子 11</string>
+    <string name="str_example_12">例子 12</string>
+    <string name="str_example_13">例子 13</string>
+
+</resources>

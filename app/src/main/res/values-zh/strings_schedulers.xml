@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Schedulers Detail-->
+    <string name="str_schedulers_type">Scheduler 类型</string>
+    <string name="str_schedulers_effect">作用</string>
+
+    <string name="str_schedulers_computation">Schedulers.computation()</string>
+    <string name="str_schedulers_computation_effect">用于计算任务，如事件循环或和回调处理，不要用于IO操作(IO操作请使用Schedulers.io())；默认线程数等于处理器的数量</string>
+    <string name="str_schedulers_from">Schedulers.from(executor)</string>
+    <string name="str_schedulers_from_effect">使用指定的Executor作为调度器</string>
+    <string name="str_schedulers_immediate">Schedulers.immediate()</string>
+    <string name="str_schedulers_immediate_effect">在当前线程立即开始执行任务</string>
+    <string name="str_schedulers_io">Schedulers.io()</string>
+    <string name="str_schedulers_io_effect">用于IO密集型任务，如异步阻塞IO操作，这个调度器的线程池会根据需要增长；对于普通的计算任务，请使用Schedulers.computation()；Schedulers.io( )默认是一个CachedThreadScheduler，很像一个有线程缓存的新线程调度器</string>
+    <string name="str_schedulers_newThread">Schedulers.newThread()</string>
+    <string name="str_schedulers_newThread_effect">为每个任务创建一个新线程</string>
+    <string name="str_schedulers_trampoline">Schedulers.trampoline()</string>
+    <string name="str_schedulers_trampoline_effect">当其它排队的任务完成后，在当前线程排队开始执行</string>
+</resources>

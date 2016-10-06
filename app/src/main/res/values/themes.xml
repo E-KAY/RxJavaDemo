@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+           xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- App Theme -->
+    <style name="RJDTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <!-- statusbar background color -->
+        <item name="colorPrimaryDark">@color/color_gun_gray</item>
+        <!-- main title text color -->
+        <item name="android:textColorPrimary">@color/color_gun_gray</item>
+        <!-- subtitle text color -->
+        <item name="android:textColorSecondary">@color/color_dark_gray</item>
+        <!-- view color -->
+        <item name="colorAccent">@color/color_blue</item>
+        <!-- app window background -->
+        <item name="android:windowBackground">@android:color/white</item>
+        <!-- when use ActionBar, title bar background color -->
+        <item name="colorPrimary">@color/color_gun_gray</item>
+        <!-- system navigation bar background color -->
+        <item name="android:navigationBarColor" tools:targetApi="21">@color/color_gun_gray</item>
+        <!-- button style -->
+        <item name="buttonStyle">@style/RJDStyle_Button</item>
+    </style>
+
+
+    <!-- ActionBar Theme -->
+    <style name="RJDTheme_ActionBar" parent="ThemeOverlay.AppCompat.Dark">
+    </style>
+</resources>

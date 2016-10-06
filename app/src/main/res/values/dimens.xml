@@ -1,0 +1,12 @@
+<resources>
+
+    <dimen name="fontsize_item_header">20sp</dimen>
+    <dimen name="fontsize_item_title">16sp</dimen>
+
+
+    <dimen name="fontsize_detail_info">16sp</dimen>
+
+
+    <dimen name="margin_example_btn">5dp</dimen>
+
+</resources>
