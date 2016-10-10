@@ -10,7 +10,7 @@ import com.nd.android.rxjavademo.data.impl.schedulers.MainListData_Schedulers;
  * <p>
  * Created by HuangYK on 16/9/1.
  */
-public class Activity_Observable_schedulers extends BaseShowActivity {
+public class SchedulersActivity extends BaseShowActivity {
 
     @Override
     protected int getContentViewId() {

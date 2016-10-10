@@ -6,6 +6,7 @@ import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observ
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_amb;
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_asObservable;
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_buffer;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_cache;
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_cast;
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_collect;
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_combineLatest;
@@ -42,6 +43,14 @@ import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observ
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_just;
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_last;
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_lastOrDefault;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_limit;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_map;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_materialize;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_merge;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_mergeDelayError;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_nest;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_never;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_observeOn;
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_subscribe;
 
 import java.util.ArrayList;
@@ -81,6 +90,7 @@ public final class MainListDataFactory {
         requestMainListData(new MainListWithExample_Observable_amb());
         requestMainListData(new MainListWithExample_Observable_asObservable());
         requestMainListData(new MainListWithExample_Observable_buffer());
+        requestMainListData(new MainListWithExample_Observable_cache());
         requestMainListData(new MainListWithExample_Observable_cast());
         requestMainListData(new MainListWithExample_Observable_collect());
         requestMainListData(new MainListWithExample_Observable_combineLatest());
@@ -117,10 +127,17 @@ public final class MainListDataFactory {
         requestMainListData(new MainListWithExample_Observable_just());
         requestMainListData(new MainListWithExample_Observable_last());
         requestMainListData(new MainListWithExample_Observable_lastOrDefault());
+        requestMainListData(new MainListWithExample_Observable_limit());
+        requestMainListData(new MainListWithExample_Observable_map());
+        requestMainListData(new MainListWithExample_Observable_materialize());
+        requestMainListData(new MainListWithExample_Observable_merge());
+        requestMainListData(new MainListWithExample_Observable_mergeDelayError());
+        requestMainListData(new MainListWithExample_Observable_nest());
+        requestMainListData(new MainListWithExample_Observable_never());
+        requestMainListData(new MainListWithExample_Observable_observeOn());
 
 
 
-        requestMainListData(new MainListWithExample_Observable_just());
         requestMainListData(new MainListWithExample_Observable_subscribe());
 
 

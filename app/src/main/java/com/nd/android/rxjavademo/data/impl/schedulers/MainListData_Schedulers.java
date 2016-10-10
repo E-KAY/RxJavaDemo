@@ -2,11 +2,10 @@ package com.nd.android.rxjavademo.data.impl.schedulers;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 
 import com.nd.android.rxjavademo.R;
-import com.nd.android.rxjavademo.activity.schedulers.Activity_Observable_schedulers;
+import com.nd.android.rxjavademo.activity.schedulers.SchedulersActivity;
 import com.nd.android.rxjavademo.data.IMainListData;
 
 /**
@@ -29,7 +28,7 @@ public class MainListData_Schedulers implements IMainListData {
 
     @Override
     public void starActivity(Context context) {
-        Intent intent = new Intent(context, Activity_Observable_schedulers.class);
+        Intent intent = new Intent(context, SchedulersActivity.class);
         context.startActivity(intent);
     }
 

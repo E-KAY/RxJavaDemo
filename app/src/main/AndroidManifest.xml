@@ -27,7 +27,7 @@
             android:windowSoftInputMode="stateAlwaysHidden">
         </activity>
         <activity
-            android:name=".activity.schedulers.Activity_Observable_schedulers"
+            android:name=".activity.schedulers.SchedulersActivity"
             android:alwaysRetainTaskState="true"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait"

@@ -3,9 +3,7 @@ package com.nd.android.rxjavademo.data.impl.observable;
 import com.nd.android.rxjavademo.R;
 
 import rx.Observable;
-import rx.Observer;
 import rx.Subscriber;
-import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action0;
 import rx.functions.Action1;

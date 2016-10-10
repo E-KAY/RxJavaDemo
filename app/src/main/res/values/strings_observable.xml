@@ -5,12 +5,12 @@
     <string name="str_mainlist_Observable">Observable</string>
     <string name="str_mainlist_Observable_subscribe">Observable subscribe</string>
     <string name="str_mainlist_Observable_subscribeOn">Observable subscribeOn</string>
-    <string name="str_mainlist_Observable_observeOn">Observable observeOn</string>
     <string name="str_mainlist_Observable_all">Observable all</string>
     <string name="str_mainlist_Observable_amb">Observable amb</string>
     <string name="str_mainlist_Observable_asObservable">Observable asObservable</string>
     <string name="str_mainlist_Observable_buffer">Observable buffer</string>
     <string name="str_mainlist_Observable_cast">Observable cast</string>
+    <string name="str_mainlist_Observable_cache">Observable cache</string>
     <string name="str_mainlist_Observable_collect">Observable collect</string>
     <string name="str_mainlist_Observable_combineLatest">Observable combineLatest</string>
     <string name="str_mainlist_Observable_compose">Observable compose</string>
@@ -47,6 +47,13 @@
     <string name="str_mainlist_Observable_last">Observable last</string>
     <string name="str_mainlist_Observable_lastOrDefault">Observable lastOrDefault</string>
     <string name="str_mainlist_Observable_limit">Observable limit</string>
+    <string name="str_mainlist_Observable_map">Observable map</string>
+    <string name="str_mainlist_Observable_materialize">Observable materialize</string>
+    <string name="str_mainlist_Observable_merge">Observable merge</string>
+    <string name="str_mainlist_Observable_mergeDelayError">Observable mergeDelayError</string>
+    <string name="str_mainlist_Observable_nest">Observable nest</string>
+    <string name="str_mainlist_Observable_never">Observable never</string>
+    <string name="str_mainlist_Observable_observeOn">Observable observeOn</string>
 
 
 
@@ -78,6 +85,15 @@
 
     <string name="str_mainlist_Observable_buffer_info">
         Returns an Observable that emits buffers of items it collects from the source Observable.
+    </string>
+
+    <string name="str_mainlist_Observable_cache_info" formatted="false">
+        <![CDATA[
+        Observable<T>	cache()
+        \nReturns an Observable that subscribes to this Observable lazily, caches all of its events and replays them, in the same order as received, to all the downstream subscribers.
+        \nObservable<T>	cacheWithInitialCapacity(int initialCapacity)
+        \nReturns an Observable that subscribes to this Observable lazily, caches all of its events and replays them, in the same order as received, to all the downstream subscribers.
+        ]]>
     </string>
 
 
@@ -262,7 +278,7 @@
         ]]>
     </string>
 
-    <string name="str_mainlist_Observable_from_info">
+    <string name="str_mainlist_Observable_from_info" formatted="false">
         <![CDATA[
         static <T> Observable<T>	from(java.util.concurrent.Future<? extends T> future)
         \nConverts a Future into an Observable.
@@ -277,7 +293,7 @@
         ]]>
     </string>
 
-    <string name="str_mainlist_Observable_groupBy_info">
+    <string name="str_mainlist_Observable_groupBy_info" formatted="false">
         <![CDATA[
         <K> Observable<GroupedObservable<K,T>>	groupBy(Func1<? super T,? extends K> keySelector)
         \nGroups the items emitted by an Observable according to a specified criterion, and emits these grouped items as GroupedObservables.
@@ -296,7 +312,7 @@
         Ignores all items emitted by the source Observable and only calls onCompleted or onError.
     </string>
 
-    <string name="str_mainlist_Observable_interval_info">
+    <string name="str_mainlist_Observable_interval_info" formatted="false">
         <![CDATA[
         static Observable<java.lang.Long>	interval(long initialDelay, long period, java.util.concurrent.TimeUnit unit, Scheduler scheduler)
         \nReturns an Observable that emits a 0L after the initialDelay and ever increasing numbers after each period of time thereafter, on a specified Scheduler.
@@ -319,7 +335,7 @@
         Converts some items into an Observable that emits those items.
     </string>
 
-    <string name="str_mainlist_Observable_last_info">
+    <string name="str_mainlist_Observable_last_info" formatted="false">
         <![CDATA[
         Observable<T>	last()
         \nReturns an Observable that emits the last item emitted by the source Observable or notifies observers of a NoSuchElementException if the source Observable is empty.
@@ -328,12 +344,58 @@
         ]]>
     </string>
 
-    <string name="str_mainlist_Observable_lastOrDefault_info">
+    <string name="str_mainlist_Observable_lastOrDefault_info" formatted="false">
         <![CDATA[
         Observable<T>	lastOrDefault(T defaultValue)
         \nReturns an Observable that emits only the last item emitted by the source Observable, or a default item if the source Observable completes without emitting any items.
         \nObservable<T>	lastOrDefault(T defaultValue, Func1<? super T,java.lang.Boolean> predicate)
         \nReturns an Observable that emits only the last item emitted by the source Observable that satisfies a specified condition, or a default item if no such item is emitted by the source Observable.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_limit_info">
+        Returns an Observable that emits only the first count items emitted by the source Observable.
+    </string>
+
+    <string name="str_mainlist_Observable_map_info">
+        Returns an Observable that applies a specified function to each item emitted by the source Observable and emits the results of these function applications.
+    </string>
+
+    <string name="str_mainlist_Observable_materialize_info">
+        Returns an Observable that represents all of the emissions and notifications from the source Observable into emissions marked with their original types within Notification objects.
+    </string>
+
+    <string name="str_mainlist_Observable_merge_info">
+        Flattens some Observables into a single Observable, without any transformation.
+    </string>
+
+    <string name="str_mainlist_Observable_mergeDelayError_info">
+        Flattens some Observables into one Observable, in a way that allows an Observer to receive
+        all successfully emitted items from each of the source Observables without being interrupted
+        by an error notification from one of them.
+    </string>
+
+    <string name="str_mainlist_Observable_nest_info">
+        <![CDATA[
+        Converts the source Observable<T> into an Observable<Observable<T>> that emits the source Observable as its single emission.
+        ]]>
+    </string>
+
+
+    <string name="str_mainlist_Observable_never_info">
+        Returns an Observable that never sends any items or notifications to an Observer.
+    </string>
+
+    <string name="str_mainlist_Observable_observeOn_info">
+        <![CDATA[
+        Observable<T>	observeOn(Scheduler scheduler)
+        \nModifies an Observable to perform its emissions and notifications on a specified Scheduler, asynchronously with a bounded buffer of RxRingBuffer.SIZE slots.
+        \nObservable<T>	observeOn(Scheduler scheduler, boolean delayError)
+        \nModifies an Observable to perform its emissions and notifications on a specified Scheduler, asynchronously with a bounded buffer and optionally delays onError notifications.
+        \nObservable<T>	observeOn(Scheduler scheduler, boolean delayError, int bufferSize)
+        \nModifies an Observable to perform its emissions and notifications on a specified Scheduler, asynchronously with a bounded buffer of configurable size and optionally delays onError notifications.
+        \nObservable<T>	observeOn(Scheduler scheduler, int bufferSize)
+        \nModifies an Observable to perform its emissions and notifications on a specified Scheduler, asynchronously with a bounded buffer of configurable size.
         ]]>
     </string>
 

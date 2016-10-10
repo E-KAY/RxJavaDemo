@@ -5,7 +5,6 @@ import com.nd.android.rxjavademo.R;
 import java.util.concurrent.TimeUnit;
 
 import rx.Observable;
-import rx.functions.Func1;
 
 /**
  * Observable_limit
@@ -20,7 +19,7 @@ public class MainListWithExample_Observable_limit extends MainListWithExample_Ob
 
     @Override
     public int getDetailInfo() {
-        return R.string.str_mainlist_Observable_lastOrDefault_info;
+        return R.string.str_mainlist_Observable_limit_info;
     }
 
     @Override

@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="str_mainlist_Observable_create_info">Returns an Observable that will execute the specified function when a Subscriber subscribes to it.</string>
-
-
     <string name="str_mainlist_Observable_all_info">
         all 操作符根据一个函数对源Observable发射的所有数据进行判断，最终返回的结果就是这个判断结果。
         这个函数使用发射的数据作为参数，内部判断所有的数据是否满足我们定义好的判断条件，如果全部都满足则返回true，否则就返回false。
@@ -25,11 +22,15 @@
     </string>
 
     <string name="str_mainlist_Observable_asObservable_info">
-        由于 Observable 是不可变的，所以 asObservable 函数是为了把一个 Observable 对象包装起来并安全的分享给其他人使用。
+        由于 Observable 是不可变的，所以 asObservable 操作符是为了把一个 Observable 对象包装起来并安全的分享给其他人使用。
     </string>
 
     <string name="str_mainlist_Observable_buffer_info">
-        将数据按照指定的规则做一个缓存，然后将缓存的数据作为一个集合发射出去
+        buffer 操作符将数据按照指定的规则做一个缓存，然后将缓存的数据作为一个集合发射出去
+    </string>
+
+    <string name="str_mainlist_Observable_cache_info">
+        cache 操作符能够记住 Observable 发射的数据序列并发射相同的数据序列给后续的订阅者
     </string>
 
     <string name="str_mainlist_Observable_cast_info">
@@ -38,13 +39,13 @@
     </string>
 
     <string name="str_mainlist_Observable_collect_info">
-        collect 用来将源 Observable 发射的数据给收集到一个数据结构里面，需要使用两个参数：
+        collect 操作符用来将源 Observable 发射的数据给收集到一个数据结构里面，需要使用两个参数：
         \n1)产生收集数据结构的函数
-        \n2)接收第一个函数产生的数据结构和源Observable发射的数据作为参数的函数。
+        \n2)接收第一个函数产生的数据结构和源 Observable 发射的数据作为参数的函数。
     </string>
 
     <string name="str_mainlist_Observable_combineLatest_info">
-        当两个 Observables 中的任何一个发射了一个数据时，通过一个指定的函数组合每个 Observable 发射的最新数据（一共两个数据），然后发射这个函数的结果
+        combineLatest 操作符作用是当两个 Observables 中的任何一个发射了一个数据时，通过一个指定的函数组合每个 Observable 发射的最新数据，然后发射这个函数的结果
         \n\n
         必须满足两个条件：
         \n1)所有的Observable都发射过数据。
@@ -72,8 +73,13 @@
     </string>
 
     <string name="str_mainlist_Observable_count_info">
-        Count 操作符用来统计源 Observable 发射了多少个数据，最后将数目给发射出来；
+        count 操作符用来统计源 Observable 发射了多少个数据，最后将数目给发射出来；
         如果源 Observable 发射错误，则会将错误直接报出来；在源 Observable 没有终止前，count 是不会发射统计数据的。
+    </string>
+
+    <string name="str_mainlist_Observable_create_info">
+        create 操作符可以从头开始创建一个 Observable，给这个操作符传递一个接受观察者作为参数的函数，
+        编写这个函数让它的行为表现为一个 Observable ——恰当的调用观察者的 onNext，onError 和 onCompleted 方法。
     </string>
 
     <string name="str_mainlist_Observable_debounce_info">
@@ -142,7 +148,7 @@
     </string>
 
     <string name="str_mainlist_Observable_flatMapIterable_info">
-        flatMapIterable 和 flatMap 基相同，不同之处为其转化的多个 Observable 是使用 Iterable 作为源数据的。
+        flatMapIterable 这个变体成对的打包数据，然后生成 Iterable 而不是原始数据和生成的 Observables，但是处理方式是相同的。
     </string>
 
     <string name="str_mainlist_Observable_forEach_info">
@@ -197,20 +203,48 @@
         lastOrDefault 和 last 操作符类似，只发射最后的一项数据，但增加了如果 Observable 为空就发射默认值的能力
     </string>
 
-
-
-
-
-
-
-
-
-
-
-
-    <string name="str_mainlist_Observable_naver_info">
-        创建一个不发射任何数据的Observable
+    <string name="str_mainlist_Observable_limit_info">
+        limit 操作符用于限制发送数据的个数
     </string>
+
+    <string name="str_mainlist_Observable_map_info">
+        map 操作符用于对数据根据指定逻辑进行转换，然后输出
+    </string>
+
+    <string name="str_mainlist_Observable_meterialize_info">
+        meterialize 操作符将 OnNext/OnError/OnComplete 都转化为一个 Notification 对象并按照原来的顺序发射出来
+    </string>
+
+    <string name="str_mainlist_Observable_merge_info">
+        merge 操作符将两个甚至更多的 Observables 合并到一个发射的数据项里，并发射出去
+    </string>
+
+    <string name="str_mainlist_Observable_mergeDelayError_info">
+        mergeDelayError 操作符会把 Observable 抛出的错误放到所有结果都合并完成之后才执行。
+    </string>
+
+    <string name="str_mainlist_Observable_nest_info">
+        nest 函数把一个普通的非 嵌套 Observable 变为一个嵌套的 Observable。
+        nest 把一个源 Observable 变为一个嵌套的 Observable 发射出去就结束了。
+    </string>
+
+    <string name="str_mainlist_Observable_never_info">
+        创建一个不发射任何数据的Observable，不做具体说明
+    </string>
+
+    <string name="str_mainlist_Observable_observeOn_info">
+        observeOn 操作符 是用来指定 Subscriber 所运行在的线程。或者叫做事件消费的线程。
+    </string>
+
+
+
+
+
+
+
+
+
+
 
     <string name="str_mainlist_Observable_subscribe_info">
         Rxjava是对观察者模式的一个高度的抽象，它包括两个非常重要的类：

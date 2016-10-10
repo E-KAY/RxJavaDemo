@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import rx.Observable;
 import rx.functions.Func1;
+import rx.functions.Func2;
 
 /**
  * Observable_flatMapIterable
@@ -16,6 +17,7 @@ public class MainListWithExample_Observable_flatMapIterable extends MainListWith
 
     public MainListWithExample_Observable_flatMapIterable() {
         addExample(example1());
+        addExample(example2());
     }
 
     @Override
@@ -41,5 +43,28 @@ public class MainListWithExample_Observable_flatMapIterable extends MainListWith
                         return s;
                     }
                 });
+    }
+
+    private Observable example2() {
+        // flatMapIterable(Func1, Func2)
+        return Observable.just(1, 2, 3, 4, 5, 6, 7, 8, 9)
+                .flatMapIterable(
+                        new Func1<Integer, Iterable<Integer>>() {
+                            @Override
+                            public Iterable<Integer> call(Integer integer) {
+                                ArrayList<Integer> s = new ArrayList<>();
+                                for (int i = 0; i < integer; i++) {
+                                    s.add(i);
+                                }
+                                return s;
+                            }
+                        }, new Func2<Integer, Integer, Integer>() {
+
+                            @Override
+                            public Integer call(Integer o, Integer o2) {
+                                return o + o2;
+                            }
+                        }
+                );
     }
 }

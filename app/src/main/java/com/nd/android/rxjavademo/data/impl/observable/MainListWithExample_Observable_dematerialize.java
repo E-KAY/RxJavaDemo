@@ -27,11 +27,11 @@ public class MainListWithExample_Observable_dematerialize extends MainListWithEx
         return R.string.str_mainlist_Observable_dematerialize;
     }
 
-    private Observable example1() {
+    protected Observable example1() {
         return dematerializeObserver();
     }
 
-    private Observable example2() {
+    protected Observable example2() {
         return meterializeObserver();
     }
 

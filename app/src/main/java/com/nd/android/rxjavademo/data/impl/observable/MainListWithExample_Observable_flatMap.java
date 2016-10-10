@@ -5,6 +5,7 @@ import com.nd.android.rxjavademo.R;
 import java.util.concurrent.TimeUnit;
 
 import rx.Observable;
+import rx.functions.Func0;
 import rx.functions.Func1;
 import rx.functions.Func2;
 
@@ -19,6 +20,7 @@ public class MainListWithExample_Observable_flatMap extends MainListWithExample_
         addExample(example1());
         addExample(example2());
         addExample(example3());
+        addExample(example4());
     }
 
     @Override
@@ -33,7 +35,7 @@ public class MainListWithExample_Observable_flatMap extends MainListWithExample_
 
 
     private Observable<String> example1() {
-        // <R> Observable<R> flatMap(Func1<? super T, ? extends Observable<? extends R>> func)
+        // flatMap(Func1)
         return Observable.just(1, 2, 3, 4, 5).flatMap(new Func1<Integer, Observable<String>>() {
             @Override
             public Observable<String> call(Integer integer) {
@@ -43,7 +45,7 @@ public class MainListWithExample_Observable_flatMap extends MainListWithExample_
     }
 
     private Observable example2() {
-        // <R> Observable<R> flatMap(Func1<? super T, ? extends Observable<? extends R>> func, int maxConcurrent)
+        // flatMap(Func1, int)
         return Observable.interval(300, TimeUnit.MILLISECONDS).take(10).flatMap(new Func1<Long, Observable<String>>() {
             @Override
             public Observable<String> call(Long integer) {
@@ -53,7 +55,7 @@ public class MainListWithExample_Observable_flatMap extends MainListWithExample_
     }
 
     private Observable example3() {
-        // <R> Observable<R> flatMap(Func1<? super T, ? extends Observable<? extends R>> func, int maxConcurrent)
+        // flatMap(Func1, Func2)
         return Observable.just(1, 2, 3, 4, 5, 6).flatMap(new Func1<Integer, Observable<String>>() {
             @Override
             public Observable<String> call(Integer integer) {
@@ -65,6 +67,29 @@ public class MainListWithExample_Observable_flatMap extends MainListWithExample_
                 return o + o2;
             }
         });
+    }
+
+    private Observable example4() {
+        // flatMap(Func1, Func1, Func0)
+        return Observable.just(1, 2, 3, 4, 5, 6)
+                .flatMap(
+                        new Func1<Integer, Observable<String>>() {
+                            @Override
+                            public Observable<String> call(Integer integer) {
+                                return Observable.just(String.valueOf(integer));
+                            }
+                        }, new Func1<Throwable, Observable<? extends String>>() {
+                            @Override
+                            public Observable<? extends String> call(Throwable throwable) {
+                                return null;
+                            }
+                        }, new Func0<Observable<? extends String>>() {
+                            @Override
+                            public Observable<? extends String> call() {
+                                return null;
+                            }
+                        }
+                );
     }
 
 }
