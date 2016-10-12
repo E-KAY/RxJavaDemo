@@ -7,18 +7,8 @@
     </string>
 
     <string name="str_mainlist_Observable_amb_info" formatted="false">
-        <![CDATA[
-        amb(Observable<? extends R> o1, Observable<? extends R> o2,…,Observable<? extends R> o9):\n
-        将至多9个 Observable 结合起来，让他们竞争。
-        \n\n
-        amb(java.lang.Iterable<? extends Observable<? extends R>> sources):\n
-        将 Iterable 中所有的 Observable 结合起来，让他们竞争。
-        \n\n
-        ambWith(Observable<? extends R> t1):\n
-        Observable.amb(o1,o2) 和 o1.ambWith(o2) 是等效的
-        \n\n
-        最终哪个 Observable 首先发射了数据（包括 onError 和 onComplete )就会继续发射这个 Observable 的数据，其他的 Observable 所发射的数据都会别丢弃
-        ]]>
+        amb 操作符将若干个 Observable 结合起来，让它们竞争。最终哪个 Observable 首先发射了数据（包括 onError 和 onCompleted )
+        就会继续发射这个 Observable 的数据，其他的 Observable 所发射的数据都会别丢弃。
     </string>
 
     <string name="str_mainlist_Observable_asObservable_info">
@@ -59,7 +49,7 @@
     </string>
 
     <string name="str_mainlist_Observable_concat_info">
-        不交错的连接多个 Observable 的数据，按照先后顺序，逐个检索执行
+        concat 操作符会不交错的连接多个 Observable 的数据，按照先后顺序，逐个检索执行
     </string>
 
     <string name="str_mainlist_Observable_concatMap_info">
@@ -159,6 +149,10 @@
          from 操作符可以接收一个集合作为参数，然后逐一发送出来。
     </string>
 
+    <string name="str_mainlist_Observable_fromCallable_info">
+         fromCallable 操作符，它接受一个 Callable 作为参数，返回一个发射这个 Callable 的结果的 Observable。
+    </string>
+
     <string name="str_mainlist_Observable_groupBy_info">
         groupBy 操作符是对源 Observable 产生的结果进行分组，形成一个类型为 GroupedObservable 的结果集，
         GroupedObservable 中存在一个方法为 getKey()，可以通过该方法获取结果集的Key值（类似于 HashMap 的 key )。
@@ -168,31 +162,34 @@
     </string>
 
     <string name="str_mainlist_Observable_groupJoin_info">
-        groupJoin 操作符和 join 操作符很类似，也是将两个Ovservable产生的结果进行合并，参数上有一些不同。具体看代码例子。
+        groupJoin 操作符和 join 操作符很类似，也是将两个 Observable 产生的结果进行合并，参数上有一些不同。具体看代码例子。
     </string>
 
     <string name="str_mainlist_Observable_ignoreElements_info">
-        忽略所有的数据，只保留终止通知( onError 或 onCompleted )
+        ignoreElements操作符抑制原始Observable发射的所有数据，只允许它的终止通知（onError或onCompleted）通过。
+        如果你不关心一个 Observable 发射的数据，但是希望在它完成时或遇到错误终止时收到通知，你可以对 Observable 使用 ignoreElements 操作符，它会确保永远不会调用观察者的 onNext() 方法。
     </string>
 
     <string name="str_mainlist_Observable_interval_info">
-        interval 操作符是用来创建一个按指定时间间隔发射整数序列的 Observable
-        这个比较好理解，interval 也是用来创建 Observable 的，并且也可以延迟发送。
-        但 interval 是按周期执行的，所以可以这么认为：interval 是一个可以指定线程的加强版TimerTask
+        interval 操作符返回一个 Observable，它按固定的时间间隔发射一个无限递增的整数序列。
+        可以认为 interval 是一个可以指定线程的加强版 TimerTask
     </string>
 
     <string name="str_mainlist_Observable_isEmpty_info">
-        isEmpty 操作符用来判断源 Observable 是否发射过数据，没有发射过数据返回 true.
+        isEmpty 操作符用来判断源 Observable 是否发射过数据，没有发射过数据返回 true。
     </string>
 
     <string name="str_mainlist_Observable_join_info">
         join 操作符把类似于 combineLatest 操作符，也是两个 Observable 产生的结果进行合并，
         合并的结果组成一个新的 Observable，但是 join 操作符可以控制每个 Observable 产生结果的生命周期，
-        在每个结果的生命周期内，可以与另一个 Observable 产生的结果按照一定的规则进行合并
+        在每个结果的生命周期内，可以与另一个 Observable 产生的结果按照给定的规则进行合并。
     </string>
 
     <string name="str_mainlist_Observable_just_info">
-        将传入的若干个参数依次发送出来
+        just 操作符将传入的若干个数据转化为发射那个数据的 Observable。
+        \n
+        注意：如果你传递 null 给 just，它会返回一个发射 null 值的 Observable。
+        不要误认为它会返回一个空 Observable（完全不发射任何数据的 Observable），如果需要空 Observable 应该使用 empty 操作符。
     </string>
 
     <string name="str_mainlist_Observable_last_info">
@@ -200,7 +197,12 @@
     </string>
 
     <string name="str_mainlist_Observable_lastOrDefault_info">
-        lastOrDefault 和 last 操作符类似，只发射最后的一项数据，但增加了如果 Observable 为空就发射默认值的能力
+        lastOrDefault 操作符与 last 类似，不同的是如果原始 Observable 没有发射任何值，lastOrDefault 将会发射指定的默认值。
+    </string>
+
+    <string name="str_mainlist_Observable_lift_info">
+        lift 方法是 可以让用户执行自定义的 Operator。在 RxJava 中，Observable 中的许多操作符 最终就是调用了 lift。
+        不过官方有提醒开发者，运用 lift 的前提是必须熟悉 Operator 的构建，否则可能会导致一些错误。
     </string>
 
     <string name="str_mainlist_Observable_limit_info">
@@ -208,15 +210,17 @@
     </string>
 
     <string name="str_mainlist_Observable_map_info">
-        map 操作符用于对数据根据指定逻辑进行转换，然后输出
+        map 操作符对原始 Observable 发射的每一项数据根据指定的逻辑进行处理，然后返回一个发射这些结果的 Observable。
     </string>
 
-    <string name="str_mainlist_Observable_meterialize_info">
-        meterialize 操作符将 OnNext/OnError/OnComplete 都转化为一个 Notification 对象并按照原来的顺序发射出来
+    <string name="str_mainlist_Observable_materialize_info">
+        materialize 操作符将 OnNext/OnError/OnComplete 都转化为一个 Notification 对象并按照原来的顺序发射出来
     </string>
 
     <string name="str_mainlist_Observable_merge_info">
-        merge 操作符将两个甚至更多的 Observables 合并到一个发射的数据项里，并发射出去
+        merge 操作符可以将多个 Observables 的输出合并，就好像它们是一个单个的 Observable 一样。
+        merge 可能会让合并的 Observables 发射的数据交错，如果对顺序有要求的话需要使用 concat 操作符。
+        merge 操作中，任何一个原始 Observable 的 onError 通知会被立即传递给观察者，而且会终止合并后的 Observable。
     </string>
 
     <string name="str_mainlist_Observable_mergeDelayError_info">
@@ -224,19 +228,52 @@
     </string>
 
     <string name="str_mainlist_Observable_nest_info">
-        nest 函数把一个普通的非 嵌套 Observable 变为一个嵌套的 Observable。
-        nest 把一个源 Observable 变为一个嵌套的 Observable 发射出去就结束了。
+        nest 操作符实际上是把一个源 Observable 通过 just 操作符发射出去。
     </string>
 
     <string name="str_mainlist_Observable_never_info">
-        创建一个不发射任何数据的Observable，不做具体说明
+        never 操作符用来创建一个不发射数据，并且也不终止的 Observable。
     </string>
 
     <string name="str_mainlist_Observable_observeOn_info">
-        observeOn 操作符 是用来指定 Subscriber 所运行在的线程。或者叫做事件消费的线程。
+        observeOn 操作符用来指定 Observable 在一个特定的调度器上发送通知给观察者 (调用观察者的 onNext, onCompleted, onError 方法)。
+        对于 observeOn 比较重要的一点就是要了解它的作用域，observeOn 作用于在它之后的操作符，直到出现新的 observeOn 操作符。
     </string>
 
+    <string name="str_mainlist_Observable_ofType_info">
+        ofType 操作符是 filter 操作符的一个特殊形式。它过滤一个 Observable，只返回指定类型的数据。
+    </string>
 
+    <string name="str_mainlist_Observable_onBackpressureBuffer_info">
+        onBackpressureBuffer 操作符会缓存所有当前无法消费的数据，直到 Observer 可以处理为止。
+    </string>
+
+    <string name="str_mainlist_Observable_onBackpressureDrop_info">
+        onBackpressureDrop 操作符会丢弃消费者无法消费的数据。
+    </string>
+
+    <string name="str_mainlist_Observable_onBackpressureLatest_info">
+        onBackpressureLatest 操作符会丢弃消费者无法消费的数据，但是会返回最后的一个数据。
+    </string>
+
+    <string name="str_mainlist_Observable_onErrorResumeNext_info">
+        onErrorResumeNext 操作符是在错误或异常发生时拦截这个错误，返回一个 Observable 去执行。
+    </string>
+
+    <string name="str_mainlist_Observable_onErrorReturn_info">
+        onErrorReturn 操作符是在 Observable 发生错误或异常的时候，拦截错误并执行指定的逻辑，返回一个跟源 Observable 相同类型的结果，最后回调订阅者的 onComplete 方法。
+    </string>
+
+    <string name="str_mainlist_Observable_onExceptionResumeNext_info">
+        onExceptionResumeNext 操作符与 onErrorResumeNext 操作符类似，同样也是创建并返回一个新的 Observable去执行，
+        不同的是，onExceptionResumeNext 只会拦截 Exception 类型的异常，其他的类型如 Error，则不会拦截。
+    </string>
+
+    <string name="str_mainlist_Observable_publish_info">
+        publish 操作符能将普通的 Observable 转换为可连接的 Observable (ConnectableObservable)。
+        ConnectableObservable 与普通的 Observable 差不多，不过它并不会在被订阅时开始发射数据，
+        而是直到使用了 connect 操作符时才会开始。用这种方法，你可以在任何时候让一个Observable开始发射数据。
+    </string>
 
 
 

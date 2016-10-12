@@ -23,6 +23,8 @@ android {
 def support_version = "23.2.1"
 dependencies {
 
+//    classpath 'me.tatarka:gradle-retrolambda:3.3.0'
+
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
 
@@ -32,12 +34,20 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.2.0'
     compile 'io.reactivex:rxjava:1.1.4'
 
+    compile ('com.trello:rxlifecycle-components:0.8.0'){
+        exclude group: 'com.android.support'
+    }
+
     compile('com.afollestad.material-dialogs:commons:0.8.5.1@aar') {
         exclude group: 'com.android.support'
         transitive = true;
         changing = true;
     }
-
+//    compile('com.afollestad:material-dialogs:0.8.4.2@aar') {
+//        exclude group: 'com.android.support'
+//        transitive = true;
+//        changing = true;
+//    }
     compile ('se.emilsjolander:stickylistheaders:2.7.0'){
         exclude group: 'com.android.support'
         transitive = true;

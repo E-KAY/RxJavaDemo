@@ -3,6 +3,7 @@ package com.nd.android.rxjavademo.presenter.impl;
 import android.support.annotation.NonNull;
 
 import com.nd.android.rxjavademo.presenter.IObservableShowExamplePresenter;
+import com.nd.android.rxjavademo.utils.RxJavaDemoUtils;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -13,7 +14,7 @@ import rx.subscriptions.CompositeSubscription;
 
 /**
  * Observable例子展示操作类
- * <p/>
+ * <p>
  * Created by HuangYK on 16/10/2.
  */
 public class ObservableShowExamplePresenter<T> implements IObservableShowExamplePresenter {
@@ -95,12 +96,13 @@ public class ObservableShowExamplePresenter<T> implements IObservableShowExample
 
             @Override
             public void onError(Throwable e) {
-                mView.updateResultDialogMsg("\nonError");
+                mView.updateResultDialogMsg("\nonError:" + e.toString());
             }
 
             @SuppressWarnings("unchecked")
             @Override
             public void onNext(T result) {
+                RxJavaDemoUtils.threadInfo(".onNext");
                 if (result instanceof Observable) {
                     Observable observable = (Observable) result;
                     observable.compose(applySchedulers()).subscribe(getSubscriber());

@@ -10,7 +10,6 @@ import com.nd.android.rxjavademo.R;
 public class MainListWithExample_Observable_materialize extends MainListWithExample_Observable_dematerialize {
 
     public MainListWithExample_Observable_materialize() {
-        addExample(example1());
         addExample(example2());
     }
 

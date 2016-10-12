@@ -37,6 +37,7 @@
     <string name="str_mainlist_Observable_flatMapIterable">Observable flatMapIterable</string>
     <string name="str_mainlist_Observable_forEach">Observable forEach</string>
     <string name="str_mainlist_Observable_from">Observable from</string>
+    <string name="str_mainlist_Observable_fromCallable">Observable fromCallable</string>
     <string name="str_mainlist_Observable_groupBy">Observable groupBy</string>
     <string name="str_mainlist_Observable_groupJoin">Observable groupJoin</string>
     <string name="str_mainlist_Observable_ignoreElements">Observable ignoreElements</string>
@@ -45,6 +46,7 @@
     <string name="str_mainlist_Observable_join">Observable join</string>
     <string name="str_mainlist_Observable_just">Observable just</string>
     <string name="str_mainlist_Observable_last">Observable last</string>
+    <string name="str_mainlist_Observable_lift">Observable lift</string>
     <string name="str_mainlist_Observable_lastOrDefault">Observable lastOrDefault</string>
     <string name="str_mainlist_Observable_limit">Observable limit</string>
     <string name="str_mainlist_Observable_map">Observable map</string>
@@ -54,6 +56,14 @@
     <string name="str_mainlist_Observable_nest">Observable nest</string>
     <string name="str_mainlist_Observable_never">Observable never</string>
     <string name="str_mainlist_Observable_observeOn">Observable observeOn</string>
+    <string name="str_mainlist_Observable_ofType">Observable ofType</string>
+    <string name="str_mainlist_Observable_onBackpressureBuffer">Observable onBackpressureBuffer</string>
+    <string name="str_mainlist_Observable_onBackpressureDrop">Observable onBackpressureDrop</string>
+    <string name="str_mainlist_Observable_onBackpressureLatest">Observable onBackpressureLatest</string>
+    <string name="str_mainlist_Observable_onErrorResumeNext">Observable onErrorResumeNext</string>
+    <string name="str_mainlist_Observable_onErrorReturn">Observable onErrorReturn</string>
+    <string name="str_mainlist_Observable_onExceptionResumeNext">Observable onExceptionResumeNext</string>
+    <string name="str_mainlist_Observable_publish">Observable publish</string>
 
 
 
@@ -66,7 +76,7 @@
         Returns an Observable that emits a Boolean that indicates whether all of the items emitted by the source Observable satisfy a condition.
     </string>
 
-    <string name="str_mainlist_Observable_amb_info" formatted="false">
+    <string name="str_mainlist_Observable_amb_info">
         <![CDATA[
         amb(java.lang.Iterable<? extends Observable<? extends R>> sources):\n
         Mirrors the one Observable in an Iterable of several Observables that first either emits an item or sends a termination notification.
@@ -87,7 +97,7 @@
         Returns an Observable that emits buffers of items it collects from the source Observable.
     </string>
 
-    <string name="str_mainlist_Observable_cache_info" formatted="false">
+    <string name="str_mainlist_Observable_cache_info">
         <![CDATA[
         Observable<T>	cache()
         \nReturns an Observable that subscribes to this Observable lazily, caches all of its events and replays them, in the same order as received, to all the downstream subscribers.
@@ -133,7 +143,7 @@
         Returns an Observable that emits the count of the total number of items emitted by the source Observable.
     </string>
 
-    <string name="str_mainlist_Observable_debounce_info" formatted="false">
+    <string name="str_mainlist_Observable_debounce_info">
         <![CDATA[
         <U> Observable<R> debounce(Func1<? super R,? extends Observable<U>> debounceSelector)
         \nReturns an Observable that mirrors the source Observable, except that it drops items emitted by the source Observable that are followed by another item within a computed debounce duration.
@@ -148,7 +158,7 @@
         Returns an Observable that emits the items emitted by the source Observable or a specified default item if the source Observable is empty.
     </string>
 
-    <string name="str_mainlist_Observable_delay_info" formatted="false">
+    <string name="str_mainlist_Observable_delay_info">
         <![CDATA[
         <U,V> Observable<R>	delay(Func0<? extends Observable<U>> subscriptionDelay, Func1<? super R,? extends Observable<V>> itemDelay)
         \nReturns an Observable that delays the subscription to and emissions from the source Observable via another Observable on a per-item basis.
@@ -174,7 +184,7 @@
         Notification objects emitted by the source Observable into the items or notifications they represent.
     </string>
 
-    <string name="str_mainlist_Observable_distinct_info" formatted="false">
+    <string name="str_mainlist_Observable_distinct_info">
         <![CDATA[
         Observable<R>	distinct()
         \nReturns an Observable that emits all items emitted by the source Observable that are distinct.
@@ -183,7 +193,7 @@
         ]]>
     </string>
 
-    <string name="str_mainlist_Observable_distinctUntilChanged_info" formatted="false">
+    <string name="str_mainlist_Observable_distinctUntilChanged_info">
         <![CDATA[
         Observable<R>	distinctUntilChanged()
         \nReturns an Observable that emits all items emitted by the source Observable that are distinct from their immediate predecessors.
@@ -194,7 +204,7 @@
         ]]>
     </string>
 
-    <string name="str_mainlist_Observable_elementAt_info" formatted="false">
+    <string name="str_mainlist_Observable_elementAt_info">
         <![CDATA[
         Observable<R>	elementAt(int index)
         \nReturns an Observable that emits the single item at a specified index in a sequence of emissions from a source Observable.
@@ -219,7 +229,7 @@
         Filters items emitted by an Observable by only emitting those that satisfy a specified predicate.
     </string>
 
-    <string name="str_mainlist_Observable_first_info" formatted="false">
+    <string name="str_mainlist_Observable_first_info">
         <![CDATA[
         Observable<T>	first()
         /nReturns an Observable that emits only the very first item emitted by the source Observable, or notifies of an NoSuchElementException if the source Observable is empty.
@@ -228,7 +238,7 @@
         ]]>
     </string>
 
-    <string name="str_mainlist_Observable_firstOrDefault_info" formatted="false">
+    <string name="str_mainlist_Observable_firstOrDefault_info">
         <![CDATA[
         Observable<T>	firstOrDefault(T defaultValue)
         \nReturns an Observable that emits only the very first item emitted by the source Observable, or a default item if the source Observable completes without emitting anything.
@@ -237,7 +247,7 @@
         ]]>
     </string>
 
-    <string name="str_mainlist_Observable_flatMap_info" formatted="false">
+    <string name="str_mainlist_Observable_flatMap_info">
         <![CDATA[
         <R> Observable<R>	flatMap(Func1<? super T,? extends Observable<? extends R>> func)
         \nReturns an Observable that emits items based on applying a function that you supply to each item emitted by the source Observable, where that function returns an Observable, and then merging those resulting Observables and emitting the results of this merger.
@@ -254,7 +264,7 @@
         ]]>
     </string>
 
-    <string name="str_mainlist_Observable_flatMapIterable_info" formatted="false">
+    <string name="str_mainlist_Observable_flatMapIterable_info">
         <![CDATA[
         <R> Observable<R>	flatMapIterable(Func1<? super T,? extends java.lang.Iterable<? extends R>> collectionSelector)
         \nReturns an Observable that merges each item emitted by the source Observable with the values in an Iterable corresponding to that item that is generated by a selector.
@@ -267,7 +277,7 @@
         ]]>
     </string>
 
-    <string name="str_mainlist_Observable_forEach_info" formatted="false">
+    <string name="str_mainlist_Observable_forEach_info">
         <![CDATA[
         void	forEach(Action1<? super T> onNext)
         \nSubscribes to the Observable and receives notifications for each element.
@@ -278,7 +288,7 @@
         ]]>
     </string>
 
-    <string name="str_mainlist_Observable_from_info" formatted="false">
+    <string name="str_mainlist_Observable_from_info">
         <![CDATA[
         static <T> Observable<T>	from(java.util.concurrent.Future<? extends T> future)
         \nConverts a Future into an Observable.
@@ -293,7 +303,11 @@
         ]]>
     </string>
 
-    <string name="str_mainlist_Observable_groupBy_info" formatted="false">
+    <string name="str_mainlist_Observable_fromCallable_info">
+        Returns an Observable that, when an observer subscribes to it, invokes a function you specify and then emits the value returned from that function.
+    </string>
+
+    <string name="str_mainlist_Observable_groupBy_info">
         <![CDATA[
         <K> Observable<GroupedObservable<K,T>>	groupBy(Func1<? super T,? extends K> keySelector)
         \nGroups the items emitted by an Observable according to a specified criterion, and emits these grouped items as GroupedObservables.
@@ -312,13 +326,13 @@
         Ignores all items emitted by the source Observable and only calls onCompleted or onError.
     </string>
 
-    <string name="str_mainlist_Observable_interval_info" formatted="false">
+    <string name="str_mainlist_Observable_interval_info">
         <![CDATA[
-        static Observable<java.lang.Long>	interval(long initialDelay, long period, java.util.concurrent.TimeUnit unit, Scheduler scheduler)
+        interval(long, long, TimeUnit, Scheduler)
         \nReturns an Observable that emits a 0L after the initialDelay and ever increasing numbers after each period of time thereafter, on a specified Scheduler.
-        \nstatic Observable<java.lang.Long>	interval(long interval, java.util.concurrent.TimeUnit unit)
+        \ninterval(long, TimeUnit)
         \nReturns an Observable that emits a sequential number every specified interval of time.
-        \nstatic Observable<java.lang.Long>	interval(long interval, java.util.concurrent.TimeUnit unit, Scheduler scheduler)
+        \n\ninterval(long, TimeUnit, Scheduler)
         \nReturns an Observable that emits a sequential number every specified interval of time, on a specified Scheduler.
         ]]>
     </string>
@@ -335,22 +349,29 @@
         Converts some items into an Observable that emits those items.
     </string>
 
-    <string name="str_mainlist_Observable_last_info" formatted="false">
+    <string name="str_mainlist_Observable_last_info">
         <![CDATA[
-        Observable<T>	last()
+        last():
         \nReturns an Observable that emits the last item emitted by the source Observable or notifies observers of a NoSuchElementException if the source Observable is empty.
-        \nObservable<T>	last(Func1<? super T,java.lang.Boolean> predicate)
+        \n\nlast(Func1):
         \nReturns an Observable that emits only the last item emitted by the source Observable that satisfies a given condition, or notifies of a NoSuchElementException if no such items are emitted.
         ]]>
     </string>
 
-    <string name="str_mainlist_Observable_lastOrDefault_info" formatted="false">
+    <string name="str_mainlist_Observable_lastOrDefault_info">
         <![CDATA[
-        Observable<T>	lastOrDefault(T defaultValue)
+        lastOrDefault(T):
         \nReturns an Observable that emits only the last item emitted by the source Observable, or a default item if the source Observable completes without emitting any items.
-        \nObservable<T>	lastOrDefault(T defaultValue, Func1<? super T,java.lang.Boolean> predicate)
+        \n\nlastOrDefault(T, Func1):
         \nReturns an Observable that emits only the last item emitted by the source Observable that satisfies a specified condition, or a default item if no such item is emitted by the source Observable.
         ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_lift_info">
+        This method requires advanced knowledge about building operators;
+        please consider other standard composition methods first; Lifts a function to the current
+        Observable and returns a new Observable that when subscribed to will pass the values
+        of the current Observable through the Operator function.
     </string>
 
     <string name="str_mainlist_Observable_limit_info">
@@ -388,14 +409,68 @@
 
     <string name="str_mainlist_Observable_observeOn_info">
         <![CDATA[
-        Observable<T>	observeOn(Scheduler scheduler)
+        observeOn(Scheduler):
         \nModifies an Observable to perform its emissions and notifications on a specified Scheduler, asynchronously with a bounded buffer of RxRingBuffer.SIZE slots.
-        \nObservable<T>	observeOn(Scheduler scheduler, boolean delayError)
+        \n\nobserveOn(Scheduler, boolean):
         \nModifies an Observable to perform its emissions and notifications on a specified Scheduler, asynchronously with a bounded buffer and optionally delays onError notifications.
-        \nObservable<T>	observeOn(Scheduler scheduler, boolean delayError, int bufferSize)
+        \n\nobserveOn(Scheduler, boolean, int):
         \nModifies an Observable to perform its emissions and notifications on a specified Scheduler, asynchronously with a bounded buffer of configurable size and optionally delays onError notifications.
-        \nObservable<T>	observeOn(Scheduler scheduler, int bufferSize)
+        \n\nobserveOn(Scheduler, int):
         \nModifies an Observable to perform its emissions and notifications on a specified Scheduler, asynchronously with a bounded buffer of configurable size.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_ofType_info">
+        Filters the items emitted by an Observable, only emitting those of the specified type.
+    </string>
+
+    <string name="str_mainlist_Observable_onBackpressureBuffer_info">
+        <![CDATA[
+        onBackpressureBuffer():
+        \nInstructs an Observable that is emitting items faster than its observer can consume them to buffer these items indefinitely until they can be emitted.
+        \n\nonBackpressureBuffer(long):
+        \nInstructs an Observable that is emitting items faster than its observer can consume them to buffer up to a given amount of items until they can be emitted.
+        \n\nonBackpressureBuffer(long, Action0):
+        \nInstructs an Observable that is emitting items faster than its observer can consume them to buffer up to a given amount of items until they can be emitted.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_onBackpressureDrop_info">
+        <![CDATA[
+        onBackpressureDrop():
+        \nInstructs an Observable that is emitting items faster than its observer can consume them to discard, rather than emit, those items that its observer is not prepared to observe.
+        \n\nonBackpressureDrop(Action1)
+        \n\nInstructs an Observable that is emitting items faster than its observer can consume them to discard, rather than emit, those items that its observer is not prepared to observe.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_onBackpressureLatest_info">
+        Instructs an Observable that is emitting items faster than its observer can consume them to hold onto the latest value and emit that on request.
+    </string>
+
+    <string name="str_mainlist_Observable_onErrorResumeNext_info">
+        <![CDATA[
+        onErrorResumeNext(Func1):
+        \nInstructs an Observable to pass control to another Observable rather than invoking onError if it encounters an error.
+        \n\nObservable<T>	onErrorResumeNext(Observable<? extends T> resumeSequence):
+        \nInstructs an Observable to pass control to another Observable rather than invoking onError if it encounters an error.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_onErrorReturn_info">
+        Instructs an Observable to emit an item (returned by a specified function) rather than invoking onError if it encounters an error.
+    </string>
+
+    <string name="str_mainlist_Observable_onExceptionResumeNext_info">
+        Instructs an Observable to pass control to another Observable rather than invoking onError if it encounters an Exception.
+    </string>
+
+    <string name="str_mainlist_Observable_publish_info">
+        <![CDATA[
+        publish():
+        \nReturns a ConnectableObservable, which is a variety of Observable that waits until its connect method is called before it begins emitting items to those Observers that have subscribed to it.
+        \n\npublish(Func1)
+        \nReturns an Observable that emits the results of invoking a specified selector on items emitted by a ConnectableObservable that shares a single subscription to the underlying sequence.
         ]]>
     </string>
 
@@ -408,12 +483,7 @@
 
 
 
-
-
-
-
-
-    <string name="str_mainlist_Observable_subscribe_info" formatted="false">
+    <string name="str_mainlist_Observable_subscribe_info">
         <![CDATA[
         static Observable<java.lang.Long>	interval(long initialDelay, long period, java.util.concurrent.TimeUnit unit)
         \nReturns an Observable that emits a 0L after the initialDelay and ever increasing numbers after each period of time thereafter.

@@ -14,7 +14,6 @@ public class MainListWithExample_Observable_dematerialize extends MainListWithEx
 
     public MainListWithExample_Observable_dematerialize() {
         addExample(example1());
-        addExample(example2());
     }
 
     @Override
@@ -27,7 +26,7 @@ public class MainListWithExample_Observable_dematerialize extends MainListWithEx
         return R.string.str_mainlist_Observable_dematerialize;
     }
 
-    protected Observable example1() {
+    private Observable example1() {
         return dematerializeObserver();
     }
 

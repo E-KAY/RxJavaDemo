@@ -8,13 +8,14 @@ import rx.Observable;
 
 /**
  * Observable_limit
- * <p/>
+ * <p>
  * Created by HuangYK on 16/10/3.
  */
 public class MainListWithExample_Observable_limit extends MainListWithExample_Observable {
 
     public MainListWithExample_Observable_limit() {
         addExample(example1());
+        addExample(example2());
     }
 
     @Override
@@ -29,6 +30,10 @@ public class MainListWithExample_Observable_limit extends MainListWithExample_Ob
 
     private Observable example1() {
         return Observable.interval(300, TimeUnit.MILLISECONDS).limit(10);
+    }
+
+    private Observable example2() {
+        return Observable.just(1, 2, 3, 4, 5).limit(8);
     }
 
 }

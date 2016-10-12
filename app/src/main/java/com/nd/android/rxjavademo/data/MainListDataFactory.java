@@ -34,6 +34,7 @@ import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observ
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_flatMapIterable;
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_forEach;
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_from;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_fromCallable;
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_groupBy;
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_groupJoin;
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_ignoreElements;
@@ -51,6 +52,14 @@ import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observ
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_nest;
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_never;
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_observeOn;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_ofType;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_onBackpressureBuffer;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_onBackpressureDrop;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_onBackpressureLatest;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_onErrorResumeNext;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_onErrorReturn;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_onExceptionResumeNext;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_publish;
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_subscribe;
 
 import java.util.ArrayList;
@@ -118,6 +127,7 @@ public final class MainListDataFactory {
         requestMainListData(new MainListWithExample_Observable_flatMapIterable());
         requestMainListData(new MainListWithExample_Observable_forEach());
         requestMainListData(new MainListWithExample_Observable_from());
+        requestMainListData(new MainListWithExample_Observable_fromCallable());
         requestMainListData(new MainListWithExample_Observable_groupBy());
         requestMainListData(new MainListWithExample_Observable_groupJoin());
         requestMainListData(new MainListWithExample_Observable_ignoreElements());
@@ -135,6 +145,14 @@ public final class MainListDataFactory {
         requestMainListData(new MainListWithExample_Observable_nest());
         requestMainListData(new MainListWithExample_Observable_never());
         requestMainListData(new MainListWithExample_Observable_observeOn());
+        requestMainListData(new MainListWithExample_Observable_ofType());
+        requestMainListData(new MainListWithExample_Observable_onBackpressureBuffer());
+        requestMainListData(new MainListWithExample_Observable_onBackpressureDrop());
+        requestMainListData(new MainListWithExample_Observable_onBackpressureLatest());
+        requestMainListData(new MainListWithExample_Observable_onErrorResumeNext());
+        requestMainListData(new MainListWithExample_Observable_onErrorReturn());
+        requestMainListData(new MainListWithExample_Observable_onExceptionResumeNext());
+        requestMainListData(new MainListWithExample_Observable_publish());
 
 
 

@@ -2,11 +2,9 @@ package com.nd.android.rxjavademo.data.impl.observable;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import com.nd.android.rxjavademo.R;
 import com.nd.android.rxjavademo.activity.observable.ObservableShowExampleActivity;
-import com.nd.android.rxjavademo.data.IMainListData;
 import com.nd.android.rxjavademo.data.IMainListWithExampleData;
 
 import java.util.ArrayList;

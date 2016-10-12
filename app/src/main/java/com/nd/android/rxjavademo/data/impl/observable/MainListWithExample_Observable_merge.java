@@ -23,6 +23,7 @@ public class MainListWithExample_Observable_merge extends MainListWithExample_Ob
         addExample(example4());
         addExample(example5());
         addExample(example6());
+        addExample(example7());
     }
 
     @Override
@@ -36,6 +37,7 @@ public class MainListWithExample_Observable_merge extends MainListWithExample_Ob
     }
 
     private Observable example1() {
+        // merge(Iterable)
 
         List<Observable<Long>> observables = new ArrayList<>();
         observables.add(getObservable1());
@@ -45,6 +47,8 @@ public class MainListWithExample_Observable_merge extends MainListWithExample_Ob
     }
 
     private Observable example2() {
+        // merge(Iterable, int)
+
         List<Observable<Long>> observables = new ArrayList<>();
         observables.add(getObservable1());
         observables.add(getObservable1());
@@ -55,6 +59,8 @@ public class MainListWithExample_Observable_merge extends MainListWithExample_Ob
     }
 
     private Observable example3() {
+        // merge(Observable[])
+
         Observable[] observables = new Observable[]{
                 getObservable1(),
                 getObservable2()
@@ -63,6 +69,8 @@ public class MainListWithExample_Observable_merge extends MainListWithExample_Ob
     }
 
     private Observable example4() {
+        // merge(Observable[], int)
+
         Observable[] observables = new Observable[]{
                 getObservable1(),
                 getObservable1(),
@@ -73,14 +81,24 @@ public class MainListWithExample_Observable_merge extends MainListWithExample_Ob
     }
 
     private Observable example5() {
-//        return Observable.merge(getObservable1(), getObservable2());
+        // merge(Observable, Observable)，这里最多可以传9个 Observable 作为参数
+
+        return Observable.merge(getObservable1(), getObservable2());
 
         // 写法2： 通过 mergeWith
-        return getObservable1().mergeWith(getObservable2());
+//        return getObservable1().mergeWith(getObservable2());
     }
 
     private Observable example6() {
+        // merge(Observable)
+
         return Observable.merge(Observable.just(Observable.interval(0, 500, TimeUnit.MILLISECONDS).take(10)));
+    }
+
+    private Observable example7() {
+        // merge(Observable, int)
+
+        return Observable.merge(Observable.just(Observable.interval(0, 500, TimeUnit.MILLISECONDS).take(10)), 2);
     }
 
 

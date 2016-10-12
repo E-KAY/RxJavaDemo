@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.widget.BaseAdapter;
 
-import com.nd.android.rxjavademo.utils.CommonUtils;
+import com.nd.android.rxjavademo.utils.RxJavaDemoUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +34,7 @@ public abstract class RJDBaseAdapter<T> extends BaseAdapter {
     }
 
     public void addDataList(List<T> dataList) {
-        if (CommonUtils.isEmptyList(dataList)) {
+        if (RxJavaDemoUtils.isEmptyList(dataList)) {
             return;
         }
         if (mDataList == null) {
