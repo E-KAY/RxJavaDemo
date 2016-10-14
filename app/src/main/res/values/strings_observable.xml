@@ -64,6 +64,7 @@
     <string name="str_mainlist_Observable_onErrorReturn">Observable onErrorReturn</string>
     <string name="str_mainlist_Observable_onExceptionResumeNext">Observable onExceptionResumeNext</string>
     <string name="str_mainlist_Observable_publish">Observable publish</string>
+    <string name="str_mainlist_Observable_range">Observable range</string>
 
 
 
@@ -471,6 +472,15 @@
         \nReturns a ConnectableObservable, which is a variety of Observable that waits until its connect method is called before it begins emitting items to those Observers that have subscribed to it.
         \n\npublish(Func1)
         \nReturns an Observable that emits the results of invoking a specified selector on items emitted by a ConnectableObservable that shares a single subscription to the underlying sequence.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_range_info">
+        <![CDATA[
+        range(int, int)
+        \nReturns an Observable that emits a sequence of Integers within a specified range.
+        \n\nrange(int, int, Scheduler)
+        \nReturns an Observable that emits a sequence of Integers within a specified range, on a specified Scheduler.
         ]]>
     </string>
 

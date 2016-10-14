@@ -275,6 +275,10 @@
         而是直到使用了 connect 操作符时才会开始。用这种方法，你可以在任何时候让一个Observable开始发射数据。
     </string>
 
+    <string name="str_mainlist_Observable_range_info">
+        range 操作符能够发射一个指定范围内的有序整数序列。它接受两个参数，一个是范围的起始值，一个是范围的数据的数目。
+        如果将第二个参数设为0，将导致 Observable 不发射任何数据（如果设置为负数，会抛异常）。
+    </string>
 
 
 

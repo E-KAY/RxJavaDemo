@@ -227,7 +227,6 @@ public class MainListWithExample_Observable_buffer extends MainListWithExample_O
 
     private Observable example11() {
 
-        // buffer(Func0<? extends Observable<? extends TClosing>> bufferClosingSelector)
         // 自己定义一个Observer，来决定什么时候停止收集流
         return Observable.create(new Observable.OnSubscribe<Long>() {
             @Override

@@ -60,6 +60,7 @@ import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observ
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_onErrorReturn;
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_onExceptionResumeNext;
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_publish;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_range;
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_subscribe;
 
 import java.util.ArrayList;
@@ -153,6 +154,7 @@ public final class MainListDataFactory {
         requestMainListData(new MainListWithExample_Observable_onErrorReturn());
         requestMainListData(new MainListWithExample_Observable_onExceptionResumeNext());
         requestMainListData(new MainListWithExample_Observable_publish());
+        requestMainListData(new MainListWithExample_Observable_range());
 
 
 
