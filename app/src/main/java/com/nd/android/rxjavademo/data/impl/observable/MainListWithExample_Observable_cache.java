@@ -36,7 +36,7 @@ public class MainListWithExample_Observable_cache extends MainListWithExample_Ob
     }
 
     private Observable example2() {
-        cacheObservable = Observable.interval(300, TimeUnit.MILLISECONDS).take(10).cacheWithInitialCapacity(2);
+        cacheObservable = Observable.interval(300, TimeUnit.MILLISECONDS).take(5).cacheWithInitialCapacity(2);
         return cacheObservable;
     }
 }

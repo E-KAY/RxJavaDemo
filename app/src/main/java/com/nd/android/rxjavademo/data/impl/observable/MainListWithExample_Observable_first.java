@@ -15,6 +15,7 @@ public class MainListWithExample_Observable_first extends MainListWithExample_Ob
     public MainListWithExample_Observable_first() {
         addExample(example1());
         addExample(example2());
+        addExample(example3());
     }
 
     @Override
@@ -44,6 +45,10 @@ public class MainListWithExample_Observable_first extends MainListWithExample_Ob
                 return integer > 6;
             }
         });
+    }
+
+    private Observable example3() {
+        return Observable.just(0, 1, 2, 3, 4, 5).first();
     }
 
 }

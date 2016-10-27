@@ -3,8 +3,6 @@
 
     <!-- Observable -->
     <string name="str_mainlist_Observable">Observable</string>
-    <string name="str_mainlist_Observable_subscribe">Observable subscribe</string>
-    <string name="str_mainlist_Observable_subscribeOn">Observable subscribeOn</string>
     <string name="str_mainlist_Observable_all">Observable all</string>
     <string name="str_mainlist_Observable_amb">Observable amb</string>
     <string name="str_mainlist_Observable_asObservable">Observable asObservable</string>
@@ -65,6 +63,38 @@
     <string name="str_mainlist_Observable_onExceptionResumeNext">Observable onExceptionResumeNext</string>
     <string name="str_mainlist_Observable_publish">Observable publish</string>
     <string name="str_mainlist_Observable_range">Observable range</string>
+    <string name="str_mainlist_Observable_reduce">Observable reduce</string>
+    <string name="str_mainlist_Observable_repeat">Observable repeat</string>
+    <string name="str_mainlist_Observable_repeatWhen">Observable repeatWhen</string>
+    <string name="str_mainlist_Observable_replay">Observable replay</string>
+    <string name="str_mainlist_Observable_retry">Observable retry</string>
+    <string name="str_mainlist_Observable_retryWhen">Observable retryWhen</string>
+    <string name="str_mainlist_Observable_sample">Observable sample</string>
+    <string name="str_mainlist_Observable_scan">Observable scan</string>
+    <string name="str_mainlist_Observable_sequenceEqual">Observable sequenceEqual</string>
+    <string name="str_mainlist_Observable_serialize">Observable serialize</string>
+    <string name="str_mainlist_Observable_share">Observable share</string>
+    <string name="str_mainlist_Observable_single">Observable single</string>
+    <string name="str_mainlist_Observable_singleOrDefault">Observable singleOrDefault</string>
+    <string name="str_mainlist_Observable_skip">Observable skip</string>
+    <string name="str_mainlist_Observable_skipLast">Observable skipLast</string>
+    <string name="str_mainlist_Observable_skipUntil">Observable skipUntil</string>
+    <string name="str_mainlist_Observable_skipWhile">Observable skipWhile</string>
+    <string name="str_mainlist_Observable_sorted">Observable sorted</string>
+    <string name="str_mainlist_Observable_startWith">Observable startWith</string>
+    <string name="str_mainlist_Observable_subscribe">Observable subscribe</string>
+    <string name="str_mainlist_Observable_subscribeOn">Observable subscribeOn</string>
+    <string name="str_mainlist_Observable_switchIfEmpty">Observable switchIfEmpty</string>
+    <string name="str_mainlist_Observable_switchMap">Observable switchMap</string>
+    <string name="str_mainlist_Observable_switchOnNext">Observable switchOnNext</string>
+    <string name="str_mainlist_Observable_take">Observable take</string>
+    <string name="str_mainlist_Observable_takeFirst">Observable takeFirst</string>
+    <string name="str_mainlist_Observable_takeLast">Observable takeLast</string>
+    <string name="str_mainlist_Observable_takeLastBuffer">Observable takeLastBuffer</string>
+
+
+
+
 
 
 
@@ -79,13 +109,13 @@
 
     <string name="str_mainlist_Observable_amb_info">
         <![CDATA[
-        amb(java.lang.Iterable<? extends Observable<? extends R>> sources):\n
+        amb(Iterable):\n
         Mirrors the one Observable in an Iterable of several Observables that first either emits an item or sends a termination notification.
         \n\n
         amb(Observable<? extends R> o1, Observable<? extends R> o2 , …,Observable<? extends R> o9)\n
         Given up to nine Observables, mirrors the one that first either emits an item or sends a termination notification.
         \n\n
-        ambWith(Observable<? extends R> t1)
+        ambWith(Observable)
         Mirrors the Observable (current or provided) that first either emits an item or sends a termination notification.
         ]]>
     </string>
@@ -100,9 +130,9 @@
 
     <string name="str_mainlist_Observable_cache_info">
         <![CDATA[
-        Observable<T>	cache()
+        cache()
         \nReturns an Observable that subscribes to this Observable lazily, caches all of its events and replays them, in the same order as received, to all the downstream subscribers.
-        \nObservable<T>	cacheWithInitialCapacity(int initialCapacity)
+        \nOcacheWithInitialCapacity(int initialCapacity)
         \nReturns an Observable that subscribes to this Observable lazily, caches all of its events and replays them, in the same order as received, to all the downstream subscribers.
         ]]>
     </string>
@@ -146,11 +176,11 @@
 
     <string name="str_mainlist_Observable_debounce_info">
         <![CDATA[
-        <U> Observable<R> debounce(Func1<? super R,? extends Observable<U>> debounceSelector)
+        debounce(Func1)
         \nReturns an Observable that mirrors the source Observable, except that it drops items emitted by the source Observable that are followed by another item within a computed debounce duration.
-        \nObservable<R>	debounce(long timeout, java.util.concurrent.TimeUnit unit)
+        \ndebounce(long, TimeUnit unit)
         \nReturns an Observable that mirrors the source Observable, except that it drops items emitted by the source Observable that are followed by newer items before a timeout value expires.
-        \nObservable<R>	debounce(long timeout, java.util.concurrent.TimeUnit unit, Scheduler scheduler)
+        \ndebounce(long, TimeUnit, Scheduler)
         \nReturns an Observable that mirrors the source Observable, except that it drops items emitted by the source Observable that are followed by newer items before a timeout value expires on a specified Scheduler.
         ]]>
     </string>
@@ -161,21 +191,21 @@
 
     <string name="str_mainlist_Observable_delay_info">
         <![CDATA[
-        <U,V> Observable<R>	delay(Func0<? extends Observable<U>> subscriptionDelay, Func1<? super R,? extends Observable<V>> itemDelay)
+        delay(Func0, Func1)
         \nReturns an Observable that delays the subscription to and emissions from the source Observable via another Observable on a per-item basis.
-        \n<U> Observable<R>	delay(Func1<? super R,? extends Observable<U>> itemDelay)
+        \ndelay(Func1)
         \nReturns an Observable that delays the emissions of the source Observable via another Observable on a per-item basis.
-        \nObservable<R>	delay(long delay, java.util.concurrent.TimeUnit unit)
+        \ndelay(long, TimeUnit)
         \nReturns an Observable that emits the items emitted by the source Observable shifted forward in time by a specified delay.
-        \nObservable<R>	delay(long delay, java.util.concurrent.TimeUnit unit, Scheduler scheduler)
+        \ndelay(long, TimeUnit, Scheduler)
         \nReturns an Observable that emits the items emitted by the source Observable shifted forward in time by a specified delay.
-        \n<U> Observable<R>	delaySubscription(Func0<? extends Observable<U>> subscriptionDelay)
+        \ndelaySubscription(Func0)
         \nReturns an Observable that delays the subscription to the source Observable until a second Observable emits an item.
-        \nObservable<R>	delaySubscription(long delay, java.util.concurrent.TimeUnit unit)
+        \ndelaySubscription(long, TimeUnit)
         \nReturns an Observable that delays the subscription to the source Observable by a given amount of time.
-        \nObservable<R>	delaySubscription(long delay, java.util.concurrent.TimeUnit unit, Scheduler scheduler)
+        \ndelaySubscription(long, TimeUnit, Scheduler)
         \nReturns an Observable that delays the subscription to the source Observable by a given amount of time, both waiting and subscribing on a given Scheduler.
-        \n<U> Observable<R>	delaySubscription(Observable<U> other)
+        \ndelaySubscription(Observable)
         \nReturns an Observable that delays the subscription to this Observable until the other Observable emits an element or completes normally.
         ]]>
     </string>
@@ -187,29 +217,29 @@
 
     <string name="str_mainlist_Observable_distinct_info">
         <![CDATA[
-        Observable<R>	distinct()
+        distinct()
         \nReturns an Observable that emits all items emitted by the source Observable that are distinct.
-        \n<U> Observable<R>	distinct(Func1<? super R,? extends U> keySelector)
+        \ndistinct(Func1)
         \nReturns an Observable that emits all items emitted by the source Observable that are distinct according to a key selector function.
         ]]>
     </string>
 
     <string name="str_mainlist_Observable_distinctUntilChanged_info">
         <![CDATA[
-        Observable<R>	distinctUntilChanged()
+        distinctUntilChanged()
         \nReturns an Observable that emits all items emitted by the source Observable that are distinct from their immediate predecessors.
-        \n<U> Observable<R>	distinctUntilChanged(Func1<? super R,? extends U> keySelector)
+        \ndistinctUntilChanged(Func1)
         \nReturns an Observable that emits all items emitted by the source Observable that are distinct from their immediate predecessors, according to a key selector function.
-        \nObservable<R>	distinctUntilChanged(Func2<? super R,? super R,java.lang.Boolean> comparator)
+        \ndistinctUntilChanged(Func2)
         \nReturns an Observable that emits all items emitted by the source Observable that are distinct from their immediate predecessors when compared with each other via the provided comparator function.
         ]]>
     </string>
 
     <string name="str_mainlist_Observable_elementAt_info">
         <![CDATA[
-        Observable<R>	elementAt(int index)
+        elementAt(int)
         \nReturns an Observable that emits the single item at a specified index in a sequence of emissions from a source Observable.
-        \nObservable<R>	elementAtOrDefault(int index, R defaultValue)
+        \nelementAtOrDefault(int, R)
         \nReturns an Observable that emits the item found at a specified index in a sequence of emissions from a source Observable, or a default item if that index is out of range.
         ]]>
     </string>
@@ -232,74 +262,74 @@
 
     <string name="str_mainlist_Observable_first_info">
         <![CDATA[
-        Observable<T>	first()
+        first()
         /nReturns an Observable that emits only the very first item emitted by the source Observable, or notifies of an NoSuchElementException if the source Observable is empty.
-        /nObservable<T>	first(Func1<? super T,java.lang.Boolean> predicate)
+        /nfirst(Func1)
         /nReturns an Observable that emits only the very first item emitted by the source Observable that satisfies a specified condition, or notifies of an NoSuchElementException if no such items are emitted.
         ]]>
     </string>
 
     <string name="str_mainlist_Observable_firstOrDefault_info">
         <![CDATA[
-        Observable<T>	firstOrDefault(T defaultValue)
+        firstOrDefault(T defaultValue)
         \nReturns an Observable that emits only the very first item emitted by the source Observable, or a default item if the source Observable completes without emitting anything.
-        \nObservable<T>	firstOrDefault(T defaultValue, Func1<? super T,java.lang.Boolean> predicate)
+        \nfirstOrDefault(T, Func1)
         \nReturns an Observable that emits only the very first item emitted by the source Observable that satisfies a specified condition, or a default item if the source Observable emits no such items.
         ]]>
     </string>
 
     <string name="str_mainlist_Observable_flatMap_info">
         <![CDATA[
-        <R> Observable<R>	flatMap(Func1<? super T,? extends Observable<? extends R>> func)
+        flatMap(Func1)
         \nReturns an Observable that emits items based on applying a function that you supply to each item emitted by the source Observable, where that function returns an Observable, and then merging those resulting Observables and emitting the results of this merger.
-        \n<R> Observable<R>	flatMap(Func1<? super T,? extends Observable<? extends R>> onNext, Func1<? super java.lang.Throwable,? extends Observable<? extends R>> onError, Func0<? extends Observable<? extends R>> onCompleted)
+        \nflatMap(Func1, Func1, Func0)
         \nReturns an Observable that applies a function to each item emitted or notification raised by the source Observable and then flattens the Observables returned from these functions and emits the resulting items.
-        \n<R> Observable<R>	flatMap(Func1<? super T,? extends Observable<? extends R>> onNext, Func1<? super java.lang.Throwable,? extends Observable<? extends R>> onError, Func0<? extends Observable<? extends R>> onCompleted, int maxConcurrent)
+        \nflatMap(Func1, Func1, Func0, int)
         \nReturns an Observable that applies a function to each item emitted or notification raised by the source Observable and then flattens the Observables returned from these functions and emits the resulting items, while limiting the maximum number of concurrent subscriptions to these Observables.
-        \n<R> Observable<R>	flatMap(Func1<? super T,? extends Observable<? extends R>> func, int maxConcurrent)
+        \nflatMap(Func1, int)
         \nReturns an Observable that emits items based on applying a function that you supply to each item emitted by the source Observable, where that function returns an Observable, and then merging those resulting Observables and emitting the results of this merger, while limiting the maximum number of concurrent subscriptions to these Observables.
-        \n<U,R> Observable<R>	flatMap(Func1<? super T,? extends Observable<? extends U>> collectionSelector, Func2<? super T,? super U,? extends R> resultSelector)
+        \nflatMap(Func1, Func2)
         \nReturns an Observable that emits the results of a specified function to the pair of values emitted by the source Observable and a specified collection Observable.
-        \n<U,R> Observable<R>	flatMap(Func1<? super T,? extends Observable<? extends U>> collectionSelector, Func2<? super T,? super U,? extends R> resultSelector, int maxConcurrent)
+        \nflatMap(Func1, Func2, int)
         \nReturns an Observable that emits the results of a specified function to the pair of values emitted by the source Observable and a specified collection Observable, while limiting the maximum number of concurrent subscriptions to these Observables.
         ]]>
     </string>
 
     <string name="str_mainlist_Observable_flatMapIterable_info">
         <![CDATA[
-        <R> Observable<R>	flatMapIterable(Func1<? super T,? extends java.lang.Iterable<? extends R>> collectionSelector)
+        flatMapIterable(Func1)
         \nReturns an Observable that merges each item emitted by the source Observable with the values in an Iterable corresponding to that item that is generated by a selector.
-        \n<R> Observable<R>	flatMapIterable(Func1<? super T,? extends java.lang.Iterable<? extends R>> collectionSelector, int maxConcurrent)
+        \nflatMapIterable(Func1, int)
         \nReturns an Observable that merges each item emitted by the source Observable with the values in an Iterable corresponding to that item that is generated by a selector, while limiting the number of concurrent subscriptions to these Observables.
-        \n<U,R> Observable<R>	flatMapIterable(Func1<? super T,? extends java.lang.Iterable<? extends U>> collectionSelector, Func2<? super T,? super U,? extends R> resultSelector)
+        \nflatMapIterable(Func1, Func2)
         \nReturns an Observable that emits the results of applying a function to the pair of values from the source Observable and an Iterable corresponding to that item that is generated by a selector.
-        \n<U,R> Observable<R>	flatMapIterable(Func1<? super T,? extends java.lang.Iterable<? extends U>> collectionSelector, Func2<? super T,? super U,? extends R> resultSelector, int maxConcurrent)
+        \nflatMapIterable(Func1, Func2, int)
         \nReturns an Observable that emits the results of applying a function to the pair of values from the source Observable and an Iterable corresponding to that item that is generated by a selector, while limiting the number of concurrent subscriptions to these Observables.
         ]]>
     </string>
 
     <string name="str_mainlist_Observable_forEach_info">
         <![CDATA[
-        void	forEach(Action1<? super T> onNext)
+        forEach(Action1)
         \nSubscribes to the Observable and receives notifications for each element.
-        \nvoid	forEach(Action1<? super T> onNext, Action1<java.lang.Throwable> onError)
+        \nforEach(Action1, Action1)
         \nSubscribes to the Observable and receives notifications for each element and error events.
-        \nvoid	forEach(Action1<? super T> onNext, Action1<java.lang.Throwable> onError, Action0 onComplete)
+        \nforEach(Action1<, Action1, Action0)
         \nSubscribes to the Observable and receives notifications for each element and the terminal events.
         ]]>
     </string>
 
     <string name="str_mainlist_Observable_from_info">
         <![CDATA[
-        static <T> Observable<T>	from(java.util.concurrent.Future<? extends T> future)
+        from(Future)
         \nConverts a Future into an Observable.
-        \nstatic <T> Observable<T>	from(java.util.concurrent.Future<? extends T> future, long timeout, java.util.concurrent.TimeUnit unit)
+        \nfrom(Future, long, TimeUnit)
         \nConverts a Future into an Observable, with a timeout on the Future.
-        \nstatic <T> Observable<T>	from(java.util.concurrent.Future<? extends T> future, Scheduler scheduler)
+        \nfrom(Future, Scheduler)
         \nConverts a Future, operating on a specified Scheduler, into an Observable.
-        \nstatic <T> Observable<T>	from(java.lang.Iterable<? extends T> iterable)
+        \nfrom(Iterable)
         \nConverts an Iterable sequence into an Observable that emits the items in the sequence.
-        \nstatic <T> Observable<T>	from(T[] array)
+        \nfrom(T[])
         \nConverts an Array into an Observable that emits the items in the Array.
         ]]>
     </string>
@@ -310,11 +340,11 @@
 
     <string name="str_mainlist_Observable_groupBy_info">
         <![CDATA[
-        <K> Observable<GroupedObservable<K,T>>	groupBy(Func1<? super T,? extends K> keySelector)
+        groupBy(Func1)
         \nGroups the items emitted by an Observable according to a specified criterion, and emits these grouped items as GroupedObservables.
-        \n<K,R> Observable<GroupedObservable<K,R>>	groupBy(Func1<? super T,? extends K> keySelector, Func1<? super T,? extends R> elementSelector)
+        \ngroupBy(Func1, Func1)
         \nGroups the items emitted by an Observable according to a specified criterion, and emits these grouped items as GroupedObservables.
-        \n<K,R> Observable<GroupedObservable<K,R>>	groupBy(Func1<? super T,? extends K> keySelector, Func1<? super T,? extends R> elementSelector, Func1<Action1<K>,java.util.Map<K,java.lang.Object>> evictingMapFactory)
+        \ngroupBy(Func1, Func1, Func1)
         \nGroups the items emitted by an Observable according to a specified criterion, and emits these grouped items as GroupedObservables.
         ]]>
     </string>
@@ -484,27 +514,254 @@
         ]]>
     </string>
 
+    <string name="str_mainlist_Observable_reduce_info">
+        <![CDATA[
+        reduce(Func2)
+        \nReturns an Observable that applies a specified accumulator function to the first item emitted by a source Observable, then feeds the result of that function along with the second item emitted by the source Observable into the same function, and so on until all items have been emitted by the source Observable, and emits the final result from the final call to your function as its sole item.
+        \n\nreduce(R, Func2)
+        \nReturns an Observable that applies a specified accumulator function to the first item emitted by a source Observable and a specified seed value, then feeds the result of that function along with the second item emitted by an Observable into the same function, and so on until all items have been emitted by the source Observable, emitting the final result from the final call to your function as its sole item.
+        ]]>
+    </string>
 
+    <string name="str_mainlist_Observable_repeat_info">
+        <![CDATA[
+        repeat()
+        \nReturns an Observable that repeats the sequence of items emitted by the source Observable indefinitely.
+        \n\nrepeat(long count)
+        \nReturns an Observable that repeats the sequence of items emitted by the source Observable at most count times.
+        \n\nrepeat(long count, Scheduler scheduler)
+        \nReturns an Observable that repeats the sequence of items emitted by the source Observable at most count times, on a particular Scheduler.
+        \n\nrepeat(Scheduler scheduler)
+        \nReturns an Observable that repeats the sequence of items emitted by the source Observable indefinitely, on a particular Scheduler.
+        ]]>
+    </string>
 
+    <string name="str_mainlist_Observable_repeatWhen_info">
+        <![CDATA[
+        repeatWhen(Func1<? super Observable<? extends java.lang.Void>,? extends Observable<?>> notificationHandler)
+        \nReturns an Observable that emits the same values as the source Observable with the exception of an onCompleted.
+        \n\nrepeatWhen(Func1<? super Observable<? extends java.lang.Void>,? extends Observable<?>> notificationHandler, Scheduler scheduler)
+        \nReturns an Observable that emits the same values as the source Observable with the exception of an onCompleted.
+        ]]>
+    </string>
 
+    <string name="str_mainlist_Observable_replay_info">
+        replay operator ensure that all observers see the same sequence of emitted items, even if they subscribe after the Observable has begun emitting items
+    </string>
 
+    <string name="str_mainlist_Observable_retry_info">
+        <![CDATA[
+        retry()
+        \nReturns an Observable that mirrors the source Observable, resubscribing to it if it calls onError (infinite retry count).
+        \n\nretry(Func2<java.lang.Integer,java.lang.Throwable,java.lang.Boolean> predicate)
+        \nReturns an Observable that mirrors the source Observable, resubscribing to it if it calls onError and the predicate returns true for that specific exception and retry count.
+        \n\nretry(long count)
+        \nReturns an Observable that mirrors the source Observable, resubscribing to it if it calls onError up to a specified number of retries.
+        ]]>
+    </string>
 
+    <string name="str_mainlist_Observable_retryWhen_info">
+        Returns an Observable that emits the same values as the source observable with the exception of an onError.
+    </string>
 
+    <string name="str_mainlist_Observable_sample_info">
+        <![CDATA[
+        sample(long period, java.util.concurrent.TimeUnit unit)
+        \nReturns an Observable that emits the most recently emitted item (if any) emitted by the source Observable within periodic time intervals.
+        \n\nsample(long period, java.util.concurrent.TimeUnit unit, Scheduler scheduler)
+        \nReturns an Observable that emits the most recently emitted item (if any) emitted by the source Observable within periodic time intervals, where the intervals are defined on a particular Scheduler.
+        \n\nsample(Observable<U> sampler)
+        \nReturns an Observable that, when the specified sampler Observable emits an item or completes, emits the most recently emitted item (if any) emitted by the source Observable since the previous emission from the sampler Observable.
+        ]]>
+    </string>
 
+    <string name="str_mainlist_Observable_scan_info">
+        <![CDATA[
+        scan(Func2)
+        \nReturns an Observable that applies a specified accumulator function to the first item emitted by a source Observable, then feeds the result of that function along with the second item emitted by the source Observable into the same function, and so on until all items have been emitted by the source Observable, emitting the result of each of these iterations.
+        \n\nscan(R, Func2)
+        \nReturns an Observable that applies a specified accumulator function to the first item emitted by a source Observable and a seed value, then feeds the result of that function along with the second item emitted by the source Observable into the same function, and so on until all items have been emitted by the source Observable, emitting the result of each of these iterations.
+        ]]>
+    </string>
 
+    <string name="str_mainlist_Observable_sequenceEqual_info">
+        <![CDATA[
+        sequenceEqual(Observable, Observable)
+        \nReturns an Observable that emits a Boolean value that indicates whether two Observable sequences are the same by comparing the items emitted by each Observable pairwise.
+        \n\nsequenceEqual(Observable, Observable, Func2)
+        \nReturns an Observable that emits a Boolean value that indicates whether two Observable sequences are the same by comparing the items emitted by each Observable pairwise based on the results of a specified equality function.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_serialize_info">
+        Forces an Observable\'s emissions and notifications to be serialized and for it to obey the Observable contract in other ways.
+    </string>
+
+    <string name="str_mainlist_Observable_share_info">
+        Returns a new Observable that multicasts (shares) the original Observable.
+    </string>
+
+    <string name="str_mainlist_Observable_single_info">
+        <![CDATA[
+        single()
+        \nReturns an Observable that emits the single item emitted by the source Observable, if that Observable emits only a single item.
+        \n\nsingle(Func1)
+        \nReturns an Observable that emits the single item emitted by the source Observable that matches a specified predicate, if that Observable emits one such item.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_singleOrDefault_info">
+        <![CDATA[
+        singleOrDefault(T)
+        \nReturns an Observable that emits the single item emitted by the source Observable, if that Observable emits only a single item, or a default item if the source Observable emits no items.
+        \n\nsingleOrDefault(T, Func1)
+        \nReturns an Observable that emits the single item emitted by the source Observable that matches a predicate, if that Observable emits only one such item, or a default item if the source Observable emits no such items.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_skip_info">
+        <![CDATA[
+        skip(int)
+        \nReturns an Observable that skips the first count items emitted by the source Observable and emits the remainder.
+        \n\nskip(long, TimeUnit)
+        \nReturns an Observable that skips values emitted by the source Observable before a specified time window elapses.
+        \n\nskip(long, TimeUnit, Scheduler)
+        \nReturns an Observable that skips values emitted by the source Observable before a specified time window on a specified Scheduler elapses.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_skipLast_info">
+        <![CDATA[
+        skipLast(int)
+        \nReturns an Observable that drops a specified number of items from the end of the sequence emitted by the source Observable.
+        \n\nskipLast(long, TimeUnit)
+        \nReturns an Observable that drops items emitted by the source Observable during a specified time window before the source completes.
+        \n\nskipLast(long, TimeUnit, Scheduler)
+        \nReturns an Observable that drops items emitted by the source Observable during a specified time window (defined on a specified scheduler) before the source completes.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_skipUntil_info">
+        Returns an Observable that skips items emitted by the source Observable until a second Observable emits an item.
+    </string>
+
+    <string name="str_mainlist_Observable_skipWhile_info">
+        Returns an Observable that skips all items emitted by the source Observable as long as a specified condition holds true, but emits all further source items as soon as the condition becomes false.
+    </string>
+
+    <string name="str_mainlist_Observable_sorted_info">
+        <![CDATA[
+        \@Experimental
+        \n\nsorted()
+        \nReturns an Observable that emits the events emitted by source Observable, in a sorted order.
+        \n\nsorted(Func2)
+        \nReturns an Observable that emits the events emitted by source Observable, in a sorted order based on a specified comparison function.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_startWith_info">
+        <![CDATA[
+        startWith(Iterable)
+        \nReturns an Observable that emits the items in a specified Iterable before it begins to emit items emitted by the source Observable.
+        \n\nstartWith(Observable)
+        \nReturns an Observable that emits the items in a specified Observable before it begins to emit items emitted by the source Observable.
+        \n\nstartWith(T t1, T t2, …, T t9)
+        \nReturns an Observable that emits the specified items before it begins to emit items emitted by the source Observable.
+        ]]>
+    </string>
 
     <string name="str_mainlist_Observable_subscribe_info">
         <![CDATA[
-        static Observable<java.lang.Long>	interval(long initialDelay, long period, java.util.concurrent.TimeUnit unit)
-        \nReturns an Observable that emits a 0L after the initialDelay and ever increasing numbers after each period of time thereafter.
-        \nstatic Observable<java.lang.Long>	interval(long initialDelay, long period, java.util.concurrent.TimeUnit unit, Scheduler scheduler)
-        \nReturns an Observable that emits a 0L after the initialDelay and ever increasing numbers after each period of time thereafter, on a specified Scheduler.
-        \nstatic Observable<java.lang.Long>	interval(long interval, java.util.concurrent.TimeUnit unit)
-        \nReturns an Observable that emits a sequential number every specified interval of time.
-        \nstatic Observable<java.lang.Long>	interval(long interval, java.util.concurrent.TimeUnit unit, Scheduler scheduler)
-        \nReturns an Observable that emits a sequential number every specified interval of time, on a specified Scheduler.
+        subscribe()
+        \nSubscribes to an Observable and ignores onNext and onCompleted emissions.
+        \n\nsubscribe(Action1)
+        \nSubscribes to an Observable and provides a callback to handle the items it emits.
+        \n\nsubscribe(Action1, Action1)
+        \nSubscribes to an Observable and provides callbacks to handle the items it emits and any error notification it issues.
+        \n\nsubscribe(Action1, Action1, Action0)
+        \nSubscribes to an Observable and provides callbacks to handle the items it emits and any error or completion notification it issues.
+        \n\nsubscribe(Observer)
+        \nSubscribes to an Observable and provides an Observer that implements functions to handle the items the Observable emits and any error or completion notification it issues.
+        \n\nsubscribe(Subscriber)
+        \nSubscribes to an Observable and provides a Subscriber that implements functions to handle the items the Observable emits and any error or completion notification it issues.
         ]]>
     </string>
+
+    <string name="str_mainlist_Observable_subscribeOn_info">
+        Asynchronously subscribes Observers to this Observable on the specified Scheduler.
+    </string>
+
+    <string name="str_mainlist_Observable_switchIfEmpty_info">
+        Returns an Observable that emits the items emitted by the source Observable or the items of an alternate Observable if the source Observable is empty.
+    </string>
+
+    <string name="str_mainlist_Observable_switchMap_info">
+        Returns a new Observable by applying a function that you supply to each item emitted by the source Observable that returns an Observable, and then emitting the items emitted by the most recently emitted of these Observables.
+    </string>
+
+    <string name="str_mainlist_Observable_switchOnNext_info">
+        Converts an Observable that emits Observables into an Observable that emits the items emitted by the most recently emitted of those Observables.
+    </string>
+
+    <string name="str_mainlist_Observable_take_info">
+        <![CDATA[
+        take(int)
+        \nReturns an Observable that emits only the first count items emitted by the source Observable.
+        \n\ntake(long, TimeUnit)
+        \nReturns an Observable that emits those items emitted by source Observable before a specified time runs out.
+        \n\ntake(long , TimeUnit, Scheduler)
+        \nReturns an Observable that emits those items emitted by source Observable before a specified time (on a specified Scheduler) runs out.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_takeFirst_info">
+        Returns an Observable that emits only the very first item emitted by the source Observable that satisfies a specified condition.
+    </string>
+
+    <string name="str_mainlist_Observable_takeLast_info">
+        <![CDATA[
+        takeLast(int)
+        \nReturns an Observable that emits at most the last count items emitted by the source Observable.
+        \n\ntakeLast(int, long, TimeUnit)
+        \nReturns an Observable that emits at most a specified number of items from the source Observable that were emitted in a specified window of time before the Observable completed.
+        \n\ntakeLast(int, long, TimeUnit, Scheduler)
+        \nReturns an Observable that emits at most a specified number of items from the source Observable that were emitted in a specified window of time before the Observable completed, where the timing information is provided by a given Scheduler.
+        \n\ntakeLast(long, TimeUnit)
+        \nReturns an Observable that emits the items from the source Observable that were emitted in a specified window of time before the Observable completed.
+        \n\ntakeLast(long, TimeUnit, Scheduler)
+        \nReturns an Observable that emits the items from the source Observable that were emitted in a specified window of time before the Observable completed, where the timing information is provided by a specified Scheduler.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_takeLastBuffer_info">
+        <![CDATA[
+        takeLastBuffer(int)
+        \nReturns an Observable that emits a single List containing at most the last count elements emitted by the source Observable.
+        \n\ntakeLastBuffer(int, long, TimeUnit)
+        \nReturns an Observable that emits a single List containing at most count items from the source Observable that were emitted during a specified window of time before the source Observable completed.
+        \n\ntakeLastBuffer(int, long, TimeUnit, Scheduler)
+        \nReturns an Observable that emits a single List containing at most count items from the source Observable that were emitted during a specified window of time (on a specified Scheduler) before the source Observable completed.
+        \ntakeLastBuffer(long, TimeUnit)
+        \nReturns an Observable that emits a single List containing those items from the source Observable that were emitted during a specified window of time before the source Observable completed.
+        \n\ntakeLastBuffer(long, TimeUnit, Scheduler)
+        \nReturns an Observable that emits a single List containing those items from the source Observable that were emitted during a specified window of time before the source Observable completed, where the timing information is provided by the given Scheduler.
+        ]]>
+    </string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </resources>

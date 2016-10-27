@@ -24,7 +24,7 @@ import rx.Observable;
 
 /**
  * Observable展示例子界面
- * <p/>
+ * <p>
  * Created by HuangYK on 16/10/2.
  */
 public class ObservableShowExampleActivity extends BaseCompatActivity implements IObservableShowExamplePresenter.IView {
@@ -176,5 +176,14 @@ public class ObservableShowExampleActivity extends BaseCompatActivity implements
     @Override
     public int getRequest(int index) {
         return mExampleData.getRequest(index);
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mPresenter != null) {
+            mPresenter.destory();
+        }
     }
 }

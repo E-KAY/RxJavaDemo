@@ -125,6 +125,8 @@
 
     <string name="str_mainlist_Observable_first_info">
         first 操作符只会返回第一条数据，并且还可以返回满足条件的第一条数据。前面 concat 操作符实现三级缓存的例子里，就是结合 first 操作符来实现。
+        \nfirst() 实际最终调用 take(1).single()；
+        \nfirst(Func1) 实际最终调用 takeFirst(Func1)。
     </string>
 
     <string name="str_mainlist_Observable_firstOrDefault_info">
@@ -193,7 +195,8 @@
     </string>
 
     <string name="str_mainlist_Observable_last_info">
-        last 操作符是用来获取最后一个数据或者满足指定条件的最后一个数据
+        last 操作符是用来获取最后一个数据或者满足指定条件的最后一个数据。
+        \nlast() 实际最终调用 takeLast(1).single()；
     </string>
 
     <string name="str_mainlist_Observable_lastOrDefault_info">
@@ -206,7 +209,7 @@
     </string>
 
     <string name="str_mainlist_Observable_limit_info">
-        limit 操作符用于限制发送数据的个数
+        limit 操作符用于限制发送数据的个数，实际上 limit 最终是调用 take(int) 这个操作符
     </string>
 
     <string name="str_mainlist_Observable_map_info">
@@ -280,16 +283,182 @@
         如果将第二个参数设为0，将导致 Observable 不发射任何数据（如果设置为负数，会抛异常）。
     </string>
 
+    <string name="str_mainlist_Observable_reduce_info">
+        Reduce操作符对原始 Observable 发射数据的第一项应用一个函数，然后再将这个函数的返回值与第二项数据一起传递给函数，
+        以此类推，持续这个过程直到原始 Observable 发射它的最后一项数据并终止，此时 reduce 返回的 Observable 发射这个函数返回的最终值。
+    </string>
 
+    <string name="str_mainlist_Observable_repeat_info">
+        repeat 操作符可以重复的发送源 Observable 的数据序列，可以是无限发送，也可以指定发送次数。
+        repeat 操作符默认在 trampoline 调度器上执行。有一个变体可以通过可选参数指定 Scheduler。
+    </string>
 
+    <string name="str_mainlist_Observable_repeatWhen_info">
+        repeatWhen 操作符 和 repeat 有些相似，不同的是缓存和重放原始 Observable 的数据序列，而是有条件的重新订阅和发射源 Observable。
+        将原始 Observable 的终止通知（完成或错误）当做一个 void 数据传递给一个通知处理器，它以此来决定是否要重新订阅和发射源 Observable。
+        这个通知处理器就像一个 Observable 操作符，接受一个发射 void 通知的 Observable 为输入，
+        返回一个发射 void 数据（意思是，重新订阅和发射源 Observable）或者直接终止（意思是，使用 repeatWhen 终止发射数据）的 Observable。
+    </string>
 
+    <string name="str_mainlist_Observable_replay_info">
+        replay 操作符 保证所有的观察者收到相同的数据序列，即使它们在Observable开始发射数据之后才订阅。
+        \n可连接的Observable (connectable Observable)与普通的Observable差不多，不过它并不会在被订阅时开始发射数据，而是直到使用了Connect操作符时才会开始。用这种方法，你可以在任何时候让一个Observable开始发射数据。
+        \n如果在将一个Observable转换为可连接的Observable之前对它使用Replay操作符，产生的这个可连接Observable将总是发射完整的数据序列给任何未来的观察者，即使那些观察者在这个Observable开始给其它观察者发射数据之后才订阅。
+    </string>
 
+    <string name="str_mainlist_Observable_retry_info">
+        retry 操作符不会将原始 Observable 的 onError 通知传递给观察者，它会订阅这个 Observable，再给它一次机会无错误地完成它的数据序列。
+        retry 总是传递 onNext 通知给观察者，由于重新订阅，可能会造成数据项重复。
+    </string>
 
+    <string name="str_mainlist_Observable_retryWhen_info">
+        retryWhen 和 retry 类似，区别是，retryWhen 将 onError 中的 Throwable 传递给一个函数，
+        这个函数产生另一个 Observable ，retryWhen 观察它的结果再决定是不是要重新订阅原始的 Observable。
+        如果这个 Observable 发射了一项数据，它就重新订阅，如果这个 Observable 发射的是 onError 通知，它就将这个通知传递给观察者然后终止。
+    </string>
 
+    <string name="str_mainlist_Observable_sample_info">
+        sample 操作符会定时查看一个 Observable，然后发射自上次采样以来它最近发射的数据。
+        在某些实现中，有一个 throttleLast 操作符的功能类似，但不是发射采样期间的最近的数据，而是发射在那段时间内的第一项数据。
+        注意：如果自上次采样以来，原始 Observable 没有发射任何数据，这个操作返回的 Observable 在那段时间内也不会发射任何数据。
+    </string>
+
+    <string name="str_mainlist_Observable_scan_info">
+        scan 操作符对原始 Observable 发射的第一项数据应用一个函数，然后将那个函数的结果作为自己的第一项数据发射。
+        它将函数的结果同第二项数据一起填充给这个函数来产生它自己的第二项数据。它持续进行这个过程来产生剩余的数据序列。
+    </string>
+
+    <string name="str_mainlist_Observable_sequenceEqual_info">
+        sequenceEqual 操作符可以把两个 Observable 作为参数传递给它，它会比较两个 Observable 的发射的数据，
+        如果两个序列是相同的（相同的数据，相同的顺序，相同的终止状态），它就发射 true，否则发射 false。
+    </string>
+
+    <string name="str_mainlist_Observable_serialize_info">
+        一个 Observable 可以异步调用它的观察者的方法，可能是从不同的线程调用。这可能会让 Observable 行为不正确，
+        它可能会在某一个onNext调用之前尝试调用 onCompleted 或 onError 方法，或者从两个不同的线程同时调用 onNext 方法。
+        使用 serialize 操作符可以纠正这个 Observable 的行为，保证它的行为是正确的且是同步的。
+        不具体举例，详情可以查看代码
+    </string>
+
+    <string name="str_mainlist_Observable_share_info">
+        返回一个新的 Observable，它共享原来的Observable。不具体举例，详情可以查看代码。
+    </string>
+
+    <string name="str_mainlist_Observable_single_info">
+        single 操作符只会发射源 Observable 中的一个数据，如果使用重载的带过滤条件的函数，则发射符合该过滤条件的那个数据。
+        注意，single 和 first 、last 不一样的地方是，single 会检查数据流中是否只包含一个所需要的的数据，如果有多个则会抛出一个错误信息。
+        所以 single 适合用来检查数据流中是否有且仅有一个符合条件的数据，并且 single 只有在源 Observable 执行完成后才会返回结果。
+    </string>
+
+    <string name="str_mainlist_Observable_singleOrDefault_info">
+        singleOrDefault 操作符在 single 的基础上，支持当源 Observable 发送的数据没有符合条件的情况下，可以将指定的默认数据发射出去。
+    </string>
+
+    <string name="str_mainlist_Observable_skip_info">
+        skip 操作符可以根据指定条件忽略源 Observable 发射的前 N 项数据，只保留之后的数据。
+    </string>
+
+    <string name="str_mainlist_Observable_skipLast_info">
+        skipLast 操作符和 skip 操作符相反，skipLast 操作符是根据指定条件忽略源 Observable 发射的后 N 项数据，只保留前面的数据。
+    </string>
+
+    <string name="str_mainlist_Observable_skipUntil_info">
+        skipUntil 操作符订阅原始的 Observable，但是忽略它的发射物，直到第二个Observable发射了一项数据那一刻，它开始发射原始Observable。
+    </string>
+
+    <string name="str_mainlist_Observable_skipWhile_info">
+        skipWhile 操作符订阅原始的 Observable，但是忽略它的发射物，直到你指定的某个条件变为 false 的那一刻，它开始发射原始 Observable。
+    </string>
+
+    <string name="str_mainlist_Observable_sorted_info">
+        sorted 操作符可以对源 Observable 发射的数据序列进行排序操作，然后输出排序后的结果。
+        目前处于Experimental阶段。
+    </string>
+
+    <string name="str_mainlist_Observable_startWith_info">
+        startWith 可以在一个 Observable 发射数据之前先发射一个指定的数据序列。（如果想在一个 Observable 发射的数据末尾追加一个数据序列可以使用 concat 操作符。）
+    </string>
 
     <string name="str_mainlist_Observable_subscribe_info">
-        Rxjava是对观察者模式的一个高度的抽象，它包括两个非常重要的类：
-        Observable(被观察者)和Observer(观察者)，而这两个类的对象之间是通过subscribe方法来建立订阅关系的连接。
-        详情请看代码。
+        subscribe 操作符是连接 Observer 和 Observable 的胶水。一个 Observer 要想看到 Observable 发射的数据项，
+        或者想要从 Observable 获取错误和完成通知，它首先必须使用这个操作符订阅那个 Observable。
+
+        \n\nsubscribe操作符的一般实现可能会接受一到三个方法（然后由观察者组合它们），或者接受一个实现了包含这三个方法的接口的对象（有时叫做 Observer 或 Subscriber）：
+
+        \n\n-onNext
+        \n　　每当 Observable 发射了一项数据它就会调用这个方法。这个方法的参数是这个 Observable 发射的数据项。
+
+        \n\n-onError
+        \n　　Observable 调用这个方法表示它无法生成期待的数据或者遇到了其它错误。这将停止 Observable，它在这之后不会再调用 onNext 或 onCompleted。
+        onError 方法的参数是导致这个错误的原因的一个表示（有时可能是一个 Exception 或 Throwable 对象，其它时候也可能是一个简单的字符串，取决于具体的实现）。
+
+        \n\n-onCompleted
+        \n　　如果没有遇到任何错误，Observable 在最后一次调用 onCompleted 之后会调用这个方法。
+
+        \n\n如果一个 Observable 直到有一个观察者订阅它才开始发射数据项，就称之为"冷"的 Observable；
+        如果一个 Observable 可能在任何时刻开始发射数据，就称之为"热"的 Observable，一个订阅者可能从开始之后的某个时刻开始观察它发射的数据序列，它可能会错过在订阅之前发射的数据。
+
+        \n\n详情请看代码。
     </string>
+
+    <string name="str_mainlist_Observable_subscribeOn_info">
+        subscribeOn 操作符 用来指定 Observable 自身在哪个调度器上执行。
+        subscribeOn 作用于该操作符之前的 Observable 的创建操符作以及 doOnSubscribe 操作符 ，换句话说就是 doOnSubscribe 以及 Observable 的创建操作符总是被其之后最近的 subscribeOn 控制。
+        \n\n详情请看代码。
+    </string>
+
+    <string name="str_mainlist_Observable_switchIfEmpty_info">
+        switchIfEmpty 操作符支持传递一个 Observable 作为参数，当源 Observable 数据为空的情况下，执行作为参数的 Observable。
+    </string>
+
+    <string name="str_mainlist_Observable_switchMap_info">
+        switchMap 操作符与 flatMap 操作符类似，都是把 Observable 产生的结果转换成多个 Observable，然后把这多个 Observable “扁平化”成一个 Observable，并依次提交产生的结果给订阅者。
+        但是与 flatMap 操作符不同的是，switchMap 操作符会保存最新的 Observable 产生的结果而舍弃旧的结果。
+    </string>
+
+    <string name="str_mainlist_Observable_switchOnNext_info">
+        switchOnNext 操作符订阅一个发射多个 Observables 的 Observable。它每次观察那些 Observables 中的一个，
+        switchOnNext 返回的这个 Observable 取消订阅前一个发射数据的 Observable，开始发射最近的 Observable 发射的数据。
+        注意：当原始 Observable 发射了一个新的 Observable 时（不是这个新的 Observable 发射了一条数据时），
+        它将取消订阅之前的那个 Observable。这意味着，在后来那个 Observable 产生之后到它开始发射数据之前的这段时间里，
+        前一个 Observable 发射的数据将被丢弃（就像图例上的那个黄色圆圈一样）。
+    </string>
+
+    <string name="str_mainlist_Observable_take_info">
+        take 操作符让可以根据条件只返回源 Observable 前面的N项数据，然后发射完成通知，忽略剩余的数据。limit 操作符实际上也是调用 take操作符。
+        有一点需要注意，如果对一个 Observable 使用 take(n)（或limit(n)）操作符，而那个 Observable 发射的数据少于N项，
+        那么 take 操作生成的 Observable 不会抛异常或发射 onError 通知。
+    </string>
+
+    <string name="str_mainlist_Observable_takeFirst_info">
+        takeFirst 操作符根据指定条件返回 Observable 发射的数据中，第一个满足这个条件的数据。 first(Func1) 实际上就是调用的 takeFirst 操作符。
+    </string>
+
+    <string name="str_mainlist_Observable_takeLast_info">
+        takeLast 操作符可以根据指定条件，只发射原始 Observable 发射的后N项数据，忽略之前的数据。注意：这会延迟原始 Observable 发射的任何数据项，直到它全部完成。
+    </string>
+
+    <string name="str_mainlist_Observable_takeLastBuffer_info">
+        takeLastBuffer 操作符和 takeLast 类似，唯一的不同是它把所有的数据项收集到一个 List 再发射，而不是依次发射一个。
+    </string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </resources>

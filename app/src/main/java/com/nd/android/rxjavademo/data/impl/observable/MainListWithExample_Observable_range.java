@@ -4,8 +4,6 @@ import com.nd.android.rxjavademo.R;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Func1;
-import rx.schedulers.Schedulers;
 
 /**
  * Observable_range
@@ -35,7 +33,7 @@ public class MainListWithExample_Observable_range extends MainListWithExample_Ob
 
         return Observable.range(1, 10);
 
-        // 如果 count
+        // 如果 count 为-1 则会抛异常
 //        return Observable.range(10, -1);
     }
 

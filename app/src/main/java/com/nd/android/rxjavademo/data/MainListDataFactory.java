@@ -1,5 +1,6 @@
 package com.nd.android.rxjavademo.data;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_all;
@@ -61,7 +62,34 @@ import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observ
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_onExceptionResumeNext;
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_publish;
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_range;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_reduce;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_repeat;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_repeatWhen;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_replay;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_retry;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_retryWhen;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_sample;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_scan;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_sequenceEqual;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_serialize;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_share;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_single;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_singleOrDefault;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_skip;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_skipLast;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_skipUntil;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_skipWhile;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_sorted;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_startWith;
 import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_subscribe;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_subscribeOn;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_switchIfEmpty;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_switchMap;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_switchOnNext;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_take;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_takeFirst;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_takeLast;
+import com.nd.android.rxjavademo.data.impl.observable.MainListWithExample_Observable_takeLastBuffer;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -88,6 +116,7 @@ public final class MainListDataFactory {
         return sInstance;
     }
 
+    @SuppressLint("UseSparseArrays")
     private Map<Integer, IMainListData> mMainListDataMap = new HashMap<>();
 
     private MainListDataFactory() {
@@ -155,14 +184,40 @@ public final class MainListDataFactory {
         requestMainListData(new MainListWithExample_Observable_onExceptionResumeNext());
         requestMainListData(new MainListWithExample_Observable_publish());
         requestMainListData(new MainListWithExample_Observable_range());
-
-
-
+        requestMainListData(new MainListWithExample_Observable_reduce());
+        requestMainListData(new MainListWithExample_Observable_repeat());
+        requestMainListData(new MainListWithExample_Observable_repeatWhen());
+        requestMainListData(new MainListWithExample_Observable_replay());
+        requestMainListData(new MainListWithExample_Observable_retry());
+        requestMainListData(new MainListWithExample_Observable_retryWhen());
+        requestMainListData(new MainListWithExample_Observable_sample());
+        requestMainListData(new MainListWithExample_Observable_scan());
+        requestMainListData(new MainListWithExample_Observable_sequenceEqual());
+        requestMainListData(new MainListWithExample_Observable_serialize());
+        requestMainListData(new MainListWithExample_Observable_share());
+        requestMainListData(new MainListWithExample_Observable_single());
+        requestMainListData(new MainListWithExample_Observable_singleOrDefault());
+        requestMainListData(new MainListWithExample_Observable_skip());
+        requestMainListData(new MainListWithExample_Observable_skipLast());
+        requestMainListData(new MainListWithExample_Observable_skipUntil());
+        requestMainListData(new MainListWithExample_Observable_skipWhile());
+        requestMainListData(new MainListWithExample_Observable_sorted());
+        requestMainListData(new MainListWithExample_Observable_startWith());
         requestMainListData(new MainListWithExample_Observable_subscribe());
+        requestMainListData(new MainListWithExample_Observable_subscribeOn());
+        requestMainListData(new MainListWithExample_Observable_switchIfEmpty());
+        requestMainListData(new MainListWithExample_Observable_switchMap());
+        requestMainListData(new MainListWithExample_Observable_switchOnNext());
+        requestMainListData(new MainListWithExample_Observable_take());
+        requestMainListData(new MainListWithExample_Observable_takeFirst());
+        requestMainListData(new MainListWithExample_Observable_takeLast());
+        requestMainListData(new MainListWithExample_Observable_takeLastBuffer());
 
 
-//        mMainListDatas.add(new MainListData_Observable_observeOn());
-//        mMainListDatas.add(new MainListData_Observable_subscribeOn());
+
+
+
+
 
         // Schedulers
 //        mMainListDatas.add(new MainListData_Schedulers());

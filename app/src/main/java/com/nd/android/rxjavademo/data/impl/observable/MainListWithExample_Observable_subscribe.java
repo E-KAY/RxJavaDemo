@@ -3,6 +3,7 @@ package com.nd.android.rxjavademo.data.impl.observable;
 import com.nd.android.rxjavademo.R;
 
 import rx.Observable;
+import rx.Observer;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action0;
@@ -32,15 +33,15 @@ public class MainListWithExample_Observable_subscribe extends MainListWithExampl
     private void example1() {
         // 最基本的，直接订阅，对Observable发送的数据不进行处理
         // Subscription subscribe()
-        Observable.create(getOnSubscribe1())
+        Observable.just("")
                 .compose(this.<String>applySchedulers())
                 .subscribe();
     }
 
     private void example2() {
-        // Subscription subscribe(final Action1<? super T> onNext)
+        // Subscription subscribe(Action1)
         // 只对onNext发送的数据进行处理
-        Observable.create(getOnSubscribe2())
+        Observable.just("")
                 .compose(this.<String>applySchedulers())
                 .subscribe(new Action1<String>() {
                     @Override
@@ -51,9 +52,9 @@ public class MainListWithExample_Observable_subscribe extends MainListWithExampl
     }
 
     private void example3() {
-        // Subscription subscribe(final Action1<? super T> onNext, final Action1<Throwable> onError)
+        // Subscription subscribe(Action1, Action1)
         // 对 onNext 和 onError 发送的数据进行处理
-        Observable.create(getOnSubscribe3())
+        Observable.just("")
                 .compose(this.<String>applySchedulers())
                 .subscribe(new Action1<String>() {
                     @Override
@@ -69,9 +70,9 @@ public class MainListWithExample_Observable_subscribe extends MainListWithExampl
     }
 
     private void example4() {
-        // Subscription subscribe(final Action1<? super T> onNext, final Action1<Throwable> onError, final Action0 onCompleted)
+        // Subscription subscribe(Action1, Action1, Action0)
         // 对 onNext、onError、onCompleted 发送的数据进行处理
-        Observable.create(getOnSubscribe3())
+        Observable.just("")
                 .compose(this.<String>applySchedulers())
                 .subscribe(new Action1<String>() {
                     @Override
@@ -92,9 +93,9 @@ public class MainListWithExample_Observable_subscribe extends MainListWithExampl
     }
 
     private void example5() {
-        // Subscription subscribe(Subscriber<? super T> subscriber)
+        // Subscription subscribe(Subscriber)
         // 对 onNext、onError、onCompleted 发送的数据进行处理
-        Observable.create(getOnSubscribe3())
+        Observable.just("")
                 .compose(this.<String>applySchedulers())
                 .subscribe(new Subscriber<String>() {
                     @Override
@@ -114,69 +115,27 @@ public class MainListWithExample_Observable_subscribe extends MainListWithExampl
                 });
     }
 
-    private Observable.OnSubscribe<String> getOnSubscribe1() {
-        return new Observable.OnSubscribe<String>() {
+    private void example6() {
+        // Subscription subscribe(Observer)
+        // 对 onNext、onError、onCompleted 发送的数据进行处理
+        Observable.just("")
+                .compose(this.<String>applySchedulers())
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onCompleted() {
 
-            @Override
-            public void call(Subscriber<? super String> subscriber) {
-                try {
-                    Thread.sleep(500);
-                    subscriber.onNext("One");
-                    Thread.sleep(500);
-                    subscriber.onNext("Two");
-                    Thread.sleep(500);
-                    subscriber.onNext("Three");
-                    Thread.sleep(500);
-                    subscriber.onCompleted();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-    }
+                    }
 
-    private Observable.OnSubscribe<String> getOnSubscribe2() {
-        // 触发 onCompleted，之后的代码不会继续执行
-        return new Observable.OnSubscribe<String>() {
+                    @Override
+                    public void onError(Throwable e) {
 
-            @Override
-            public void call(Subscriber<? super String> subscriber) {
-                try {
-                    Thread.sleep(500);
-                    subscriber.onNext("One");
-                    Thread.sleep(500);
-                    subscriber.onNext("Two");
-                    Thread.sleep(500);
-                    subscriber.onCompleted();
-                    Thread.sleep(500);
-                    subscriber.onNext("Three");
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-    }
+                    }
 
-    private Observable.OnSubscribe<String> getOnSubscribe3() {
-        // 触发 onError，之后的代码不会继续执行
-        return new Observable.OnSubscribe<String>() {
+                    @Override
+                    public void onNext(String s) {
 
-            @Override
-            public void call(Subscriber<? super String> subscriber) {
-                try {
-                    Thread.sleep(500);
-                    subscriber.onNext("One");
-                    Thread.sleep(500);
-                    subscriber.onNext("Two");
-                    Thread.sleep(500);
-                    subscriber.onError(new Throwable());
-                    Thread.sleep(500);
-                    subscriber.onNext("Three");
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
+                    }
+                });
     }
 
     private <T> Observable.Transformer<T, T> applySchedulers() {

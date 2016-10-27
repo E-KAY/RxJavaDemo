@@ -9,6 +9,7 @@ import rx.Observable;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action0;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 
@@ -57,6 +58,13 @@ public class ObservableShowExamplePresenter<T> implements IObservableShowExample
             return;
         }
         mView.showResultDialog("Example" + (index + 1));
+
+        observable.doOnUnsubscribe(new Action0() {
+            @Override
+            public void call() {
+                mView.updateResultDialogMsg("\ndoOnUnsubscribe");
+            }
+        });
 
         if (mSubjectSub == null) {
             mExampleSub =

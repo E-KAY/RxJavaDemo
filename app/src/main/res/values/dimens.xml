@@ -4,7 +4,7 @@
     <dimen name="fontsize_item_title">16sp</dimen>
 
 
-    <dimen name="fontsize_detail_info">16sp</dimen>
+    <dimen name="fontsize_detail_info">14sp</dimen>
 
 
     <dimen name="margin_example_btn">5dp</dimen>
