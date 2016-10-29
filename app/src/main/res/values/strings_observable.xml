@@ -91,6 +91,35 @@
     <string name="str_mainlist_Observable_takeFirst">Observable takeFirst</string>
     <string name="str_mainlist_Observable_takeLast">Observable takeLast</string>
     <string name="str_mainlist_Observable_takeLastBuffer">Observable takeLastBuffer</string>
+    <string name="str_mainlist_Observable_takeUntil">Observable takeUntil</string>
+    <string name="str_mainlist_Observable_takeWhile">Observable takeWhile</string>
+    <string name="str_mainlist_Observable_throttleFirst">Observable throttleFirst</string>
+    <string name="str_mainlist_Observable_throttleLast">Observable throttleLast</string>
+    <string name="str_mainlist_Observable_throttleWithTimeout">Observable throttleWithTimeout</string>
+    <string name="str_mainlist_Observable_timeInterval">Observable timeInterval</string>
+    <string name="str_mainlist_Observable_timeout">Observable timeout</string>
+    <string name="str_mainlist_Observable_timer">Observable timer</string>
+    <string name="str_mainlist_Observable_timestamp">Observable timestamp</string>
+    <string name="str_mainlist_Observable_to">Observable to</string>
+    <string name="str_mainlist_Observable_toBlocking">Observable toBlocking</string>
+    <string name="str_mainlist_Observable_toCompletable">Observable toCompletable</string>
+    <string name="str_mainlist_Observable_toList">Observable toList</string>
+    <string name="str_mainlist_Observable_toMap">Observable toMap</string>
+    <string name="str_mainlist_Observable_toMultiMap">Observable toMultiMap</string>
+    <string name="str_mainlist_Observable_toSingle">Observable toSingle</string>
+    <string name="str_mainlist_Observable_toSortedList">Observable toSortedList</string>
+    <string name="str_mainlist_Observable_unsafeSubscribe">Observable unsafeSubscribe</string>
+    <string name="str_mainlist_Observable_unsubscribeOn">Observable unsubscribeOn</string>
+    <string name="str_mainlist_Observable_using">Observable using</string>
+    <string name="str_mainlist_Observable_window">Observable window</string>
+    <string name="str_mainlist_Observable_withLatestFrom">Observable withLatestFrom</string>
+    <string name="str_mainlist_Observable_zip">Observable zip</string>
+    <string name="str_mainlist_Observable_zipWith">Observable zipWith</string>
+
+
+
+
+
 
 
 
@@ -748,9 +777,189 @@
         ]]>
     </string>
 
+    <string name="str_mainlist_Observable_takeUntil_info">
+        <![CDATA[
+        takeUntil(Func1)
+        \nReturns an Observable that emits items emitted by the source Observable, checks the specified predicate for each item, and then completes when the condition is satisfied.
+        \n\ntakeUntil(Observable)
+        \nReturns an Observable that emits the items emitted by the source Observable until a second Observable emits an item.
+        ]]>
+    </string>
 
+    <string name="str_mainlist_Observable_takeWhile_info">
+        Returns an Observable that emits items emitted by the source Observable so long as each item satisfied a specified condition, and then completes as soon as this condition is not satisfied.
+    </string>
 
+    <string name="str_mainlist_Observable_throttleFirst_info">
+        <![CDATA[
+        throttleFirst(long, TimeUnit)
+        \nReturns an Observable that emits only the first item emitted by the source Observable during sequential time windows of a specified duration.
+        \n\nthrottleFirst(long, TimeUnit, Scheduler)
+        \nReturns an Observable that emits only the first item emitted by the source Observable during sequential time windows of a specified duration, where the windows are managed by a specified Scheduler.
+        ]]>
+    </string>
 
+    <string name="str_mainlist_Observable_throttleLast_info">
+        <![CDATA[
+        throttleLast(long, TimeUnit)
+        \nReturns an Observable that emits only the last item emitted by the source Observable during sequential time windows of a specified duration.
+        \n\nthrottleLast(long, TimeUnit, Scheduler)
+        \nReturns an Observable that emits only the last item emitted by the source Observable during sequential time windows of a specified duration, where the duration is governed by a specified Scheduler.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_throttleWithTimeout_info">
+        <![CDATA[
+        throttleWithTimeout(long, TimeUnit)
+        \nReturns an Observable that only emits those items emitted by the source Observable that are not followed by another emitted item within a specified time window.
+        \n\nthrottleWithTimeout(long, TimeUnit, Scheduler)
+        \nReturns an Observable that only emits those items emitted by the source Observable that are not followed by another emitted item within a specified time window, where the time window is governed by a specified Scheduler.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_timeInterval_info">
+        Returns an Observable that emits records of the time interval between consecutive items emitted by the source Observable.
+    </string>
+
+    <string name="str_mainlist_Observable_timeout_info">
+        Returns an Observable that emits records of the time interval between consecutive items emitted by the source Observable.
+    </string>
+
+    <string name="str_mainlist_Observable_timer_info">
+        <![CDATA[
+        timer(long, TimeUnit)
+        \nReturns an Observable that emits one item after a specified delay, and then completes.
+        \n\ntimer(long, TimeUnit, Scheduler)
+        \nReturns an Observable that emits one item after a specified delay, on a specified Scheduler, and then completes.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_timestamp_info">
+        <![CDATA[
+        timestamp()
+        \nReturns an Observable that emits each item emitted by the source Observable, wrapped in a Timestamped object.
+        \n\ntimestamp(Scheduler)
+        \nReturns an Observable that emits each item emitted by the source Observable, wrapped in a Timestamped object whose timestamps are provided by a specified Scheduler.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_to_info">
+        Calls the specified converter function during assembly time and returns its resulting value.
+    </string>
+
+    <string name="str_mainlist_Observable_toBlocking_info">
+        Calls the specified converter function during assembly time and returns its resulting value.
+    </string>
+
+    <string name="str_mainlist_Observable_toCompletable_info">
+        Returns a Completable that discards all onNext emissions (similar to ignoreAllElements()) and calls onCompleted when this source observable calls onCompleted.
+    </string>
+
+    <string name="str_mainlist_Observable_toList_info">
+        Returns an Observable that emits a single item, a list composed of all the items emitted by the source Observable.
+    </string>
+
+    <string name="str_mainlist_Observable_toMap_info">
+        <![CDATA[
+        toMap(Func1)
+        \nReturns an Observable that emits a single HashMap containing all items emitted by the source Observable, mapped by the keys returned by a specified keySelector function.
+        \n\ntoMap(Func1, Func1)
+        \nReturns an Observable that emits a single HashMap containing values corresponding to items emitted by the source Observable, mapped by the keys returned by a specified keySelector function.
+        \n\ntoMap(Func1, Func1, Func0)
+        \nReturns an Observable that emits a single Map, returned by a specified mapFactory function, that contains keys and values extracted from the items emitted by the source Observable.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_toMultiMap_info">
+        <![CDATA[
+        toMultimap(Func1)
+        \nReturns an Observable that emits a single HashMap that contains an ArrayList of items emitted by the source Observable keyed by a specified keySelector function.
+        \n\ntoMultimap(Func1, Func1)
+        \nReturns an Observable that emits a single HashMap that contains an ArrayList of values extracted by a specified valueSelector function from items emitted by the source Observable, keyed by a specified keySelector function.
+        \n\ntoMultimap(Func1, Func1, Func0)
+        \nReturns an Observable that emits a single Map, returned by a specified mapFactory function, that contains an ArrayList of values, extracted by a specified valueSelector function from items emitted by the source Observable and keyed by the keySelector function.
+        \n\ntoMultimap(Func1, Func1, Func0, Func1)
+        \nReturns an Observable that emits a single Map, returned by a specified mapFactory function, that contains a custom collection of values, extracted by a specified valueSelector function from items emitted by the source Observable, and keyed by the keySelector function.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_toSingle_info">
+        Returns a Single that emits the single item emitted by the source Observable, if that Observable emits only a single item.
+    </string>
+
+    <string name="str_mainlist_Observable_toSortedList_info">
+        <![CDATA[
+        toSortedList()
+        \nReturns an Observable that emits a list that contains the items emitted by the source Observable, in a sorted order.
+        \n\ntoSortedList(Func2)
+        \nReturns an Observable that emits a list that contains the items emitted by the source Observable, in a sorted order based on a specified comparison function.
+        \n\ntoSortedList(Func2, int)
+        \nReturns an Observable that emits a list that contains the items emitted by the source Observable, in a sorted order based on a specified comparison function.
+        \n\ntoSortedList(int)
+        \nReturns an Observable that emits a list that contains the items emitted by the source Observable, in a sorted order.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_unsafeSubscribe_info">
+        Subscribes to an Observable and invokes Observable.OnSubscribe function without any contract protection, error handling, unsubscribe, or execution hooks.
+    </string>
+
+    <string name="str_mainlist_Observable_unsubscribeOn_info">
+        Subscribes to an Observable and invokes Observable.OnSubscribe function without any contract protection, error handling, unsubscribe, or execution hooks.
+    </string>
+
+    <string name="str_mainlist_Observable_using_info">
+        <![CDATA[
+        using(Func0, Func1, Action1)
+        \nConstructs an Observable that creates a dependent resource object which is disposed of on unsubscription.
+        \n\nusing(Func0, Func1, Action1, boolean)
+        \nConstructs an Observable that creates a dependent resource object which is disposed of just before termination if you have set disposeEagerly to true and unsubscription does not occur before termination.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_window_info">
+        <![CDATA[
+        using(Func0, Func1, Action1)
+        \nConstructs an Observable that creates a dependent resource object which is disposed of on unsubscription.
+        \n\nusing(Func0, Func1, Action1, boolean)
+        \nConstructs an Observable that creates a dependent resource object which is disposed of just before termination if you have set disposeEagerly to true and unsubscription does not occur before termination.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_withLatestFrom_info">
+        <![CDATA[
+        withLatestFrom(Iterable, FuncN)
+        \nCombines the value emission from this Observable with the latest emissions from the other Observables via a function to produce the output item.
+        \n\nwithLatestFrom(Observable[], FuncN)
+        \nCombines the value emission from this Observable with the latest emissions from the other Observables via a function to produce the output item.
+        \n\nwithLatestFrom(Observable, Func2)
+        \nMerges the specified Observable into this Observable sequence by using the resultSelector function only when the source Observable (this instance) emits an item.
+        \n\nwithLatestFrom(Observable<T1> o1, Observable<T2> o2,…, Observable<T8>, Func1~8<? super T,? super T1,? super T2,…, ? super T8, R>)
+        Combines the value emission from this Observable with the latest emissions from the other Observables via a function to produce the output item.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_zip_info">
+        <![CDATA[
+        zip(Iterable, FuncN)
+        \nReturns an Observable that emits the results of a specified combiner function applied to combinations of items emitted, in sequence, by an Iterable of other Observables.
+        \n\nzip(Observable[], FuncN)
+        \nReturns an Observable that emits the results of a specified combiner function applied to combinations of items emitted, in sequence, by an array of other Observables.
+        \n\nzip(Observable, FuncN)
+        \nReturns an Observable that emits the results of a specified combiner function applied to combinations of n items emitted, in sequence, by the n Observables emitted by a specified Observable.
+        \n\nzip(Observable o1, Observable o2,…,Observable o9, Func1~9)
+        \nReturns an Observable that emits the results of a specified combiner function applied to combinations of 1~9 items emitted, in sequence, by 1~9 other Observables.
+        ]]>
+    </string>
+
+    <string name="str_mainlist_Observable_zipWith_info">
+        <![CDATA[
+        zipWith(Iterable, Func2)
+        \nReturns an Observable that emits items that are the result of applying a specified function to pairs of values, one each from the source Observable and a specified Iterable sequence.
+        \n\nzipWith(Observable, Func2)
+        \nReturns an Observable that emits items that are the result of applying a specified function to pairs of values, one each from the source Observable and another specified Observable.
+        ]]>
+    </string>
 
 
 

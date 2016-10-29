@@ -43,8 +43,8 @@ public class MainListWithExample_Observable_debounce extends MainListWithExample
                 try {
                     //产生结果的间隔时间分别为100、200、300...900毫秒
                     for (int i = 1; i < 10; i++) {
-                        subscriber.onNext(i);
                         Thread.sleep(i * 100);
+                        subscriber.onNext(i);
                     }
                     subscriber.onCompleted();
                 } catch (Exception e) {
@@ -64,8 +64,8 @@ public class MainListWithExample_Observable_debounce extends MainListWithExample
                 try {
                     //产生结果的间隔时间分别为100、200、300...900毫秒
                     for (int i = 1; i < 10; i++) {
-                        subscriber.onNext(i);
                         Thread.sleep(i * 100);
+                        subscriber.onNext(i);
                     }
                     subscriber.onCompleted();
                 } catch (Exception e) {
@@ -85,8 +85,8 @@ public class MainListWithExample_Observable_debounce extends MainListWithExample
                 try {
                     //产生结果的间隔时间分别为100、200、300...900毫秒
                     for (int i = 1; i < 10; i++) {
-                        subscriber.onNext(i);
                         Thread.sleep(i * 100);
+                        subscriber.onNext(i);
                     }
                     subscriber.onCompleted();
                 } catch (Exception e) {

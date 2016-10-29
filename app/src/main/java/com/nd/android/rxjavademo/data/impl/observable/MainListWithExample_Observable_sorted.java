@@ -39,7 +39,7 @@ public class MainListWithExample_Observable_sorted extends MainListWithExample_O
         return Observable.from(getList()).sorted(new Func2<Integer, Integer, Integer>() {
             @Override
             public Integer call(Integer integer, Integer integer2) {
-                return -(integer - integer2);
+                return integer2 - integer;
             }
         });
     }

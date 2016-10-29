@@ -442,10 +442,121 @@
         takeLastBuffer 操作符和 takeLast 类似，唯一的不同是它把所有的数据项收集到一个 List 再发射，而不是依次发射一个。
     </string>
 
+    <string name="str_mainlist_Observable_takeUntil_info">
+        takeUntil 操作符订阅并开始发射原始 Observable，直到指定条件满足时就终至发射。
+        \n\ntakeUntil(Func2) 使用一个谓词函数而不是第二个 Observable 来判定是否需要终止发射数据，它的行为类似于 takeWhile。
+        \n\ntakeUntil(Observable)，订阅并开始发射原始 Observable，它还监视你提供的第二个 Observable。如果第二个 Observable 发射了一项数据或者发射了一个终止通知，takeUntil 返回的 Observable 会停止发射原始 Observable 并终止。
+        \n注意：第二个 Observable 发射一项数据或一个 onError 通知或一个 onCompleted 通知都会导致 takeUntil 停止发射数据。
+    </string>
 
+    <string name="str_mainlist_Observable_takeWhile_info">
+        takeWhile 操作符返回一个镜像原始 Observable 行为的 Observable，直到某一项数据你指定的函数返回 false 那一刻，这个新的 Observable 发射 onCompleted 终止通知。
+    </string>
 
+    <string name="str_mainlist_Observable_throttleFirst_info">
+        throttleFirst 操作符允许设置一个时间长度，之后它会发送固定时间长度内的第一个事件，而屏蔽其它事件，在间隔达到设置的时间后，可以再发送下一个事件。
+    </string>
 
+    <string name="str_mainlist_Observable_throttleLast_info">
+        throttleLast 操作符实际上最终调用的是 sample(long, TimeUnit)，定时查看一个 Observable，然后发射自上次采样以来它最近发射的数据。
+    </string>
 
+    <string name="str_mainlist_Observable_throttleWithTimeout_info">
+        throttleWithTimeout 操作符实际上调用的是 debounce(long, TimeUnit)，对源 Observable 每产生一个结果后，如果在规定的间隔时间内没有别的结果产生，则把这个结果提交给订阅者处理，否则忽略该结果。
+    </string>
+
+    <string name="str_mainlist_Observable_timeInterval_info">
+        timeInterval 操作符将原始 Observable 转换为另一个 Obserervable，后者发射一个标志替换前者的数据项，
+        这个标志表示前者的两个连续发射物之间流逝的时间长度。新的 Observable 的第一个发射物表示的是在观察者订阅
+        原始 Observable 到原始 Observable 发射它的第一项数据之间流逝的时间长度。不存在与原始 Observable 发射最后一项数据和发射 onCompleted 通知之间时长对应的发射物。
+    </string>
+
+    <string name="str_mainlist_Observable_timeout_info">
+        timeout 操作符对原始 Observable 的一个镜像，如果过了一个指定的时长仍没有发射数据，它会发一个错误通知或者指定一个备用 Observable 执行。
+    </string>
+
+    <string name="str_mainlist_Observable_timer_info">
+        timer 操作符返回一个 Observable，它在延迟一段给定的时间后发射一个简单的数字 0。它默认在 computation 调度器上执行，也可以通过可选参数指定 Scheduler。
+    </string>
+
+    <string name="str_mainlist_Observable_timestamp_info">
+        timestamp，它将一个发射T类型数据的Observable转换为一个发射类型为Timestamped&lt;T&gt;的数据的Observable，每一项都包含数据的原始发射时间。
+        timestamp默认在immediate调度器上执行，但是可以通过参数指定其它的调度器。
+    </string>
+
+    <string name="str_mainlist_Observable_to_info">
+        to 操作符将 Observable 转换为另一个对象或数据结构。目前为 Experimental 版本。
+    </string>
+
+    <string name="str_mainlist_Observable_toBlocking_info">
+        toBlocking 操作符可以将 Observable 转换为一个 BlockingObservable。
+    </string>
+
+    <string name="str_mainlist_Observable_toCompletable_info">
+        toCompletable 操作符可以将 Observable 转换为一个 Completable。
+    </string>
+
+    <string name="str_mainlist_Observable_toList_info">
+        toList 操作符会改变 Observable 的行为，让 Observable 将多项数据组合成一个 List，然后调用一次 onNext 方法传递整个列表。
+        如果原始 Observable 没有发射任何数据就调用了 onCompleted，toList 返回的 Observable 会在调用 onCompleted 之前发射一个空列表。
+        如果原始 Observable 调用了 onError，toList 返回的 Observable 会立即调用它的观察者的 onError 方法。
+        toList 默认不在任何特定的调度器上执行。
+    </string>
+
+    <string name="str_mainlist_Observable_toMap_info">
+        toMap 操作符可以收集原始 Observable 发射的所有数据项到一个 Map（默认是 HashMap ）然后发射这个 Map。
+        你可以提供一个用于生成 Map 的 Key 的函数，还可以提供一个函数转换数据项到 Map 存储的值（默认数据项本身就是值）。
+        toMap 默认不在任何特定的调度器上执行。
+    </string>
+
+    <string name="str_mainlist_Observable_toMultiMap_info">
+        toMultiMap 操作符类似于 toMap，不同的是它生成的这个 Map 同时还是一个 ArrayList（默认是这样，你可以传递一个可选的工厂方法修改这个行为）。
+        toMultiMap 默认不在任何特定的调度器上执行。
+    </string>
+
+    <string name="str_mainlist_Observable_toSingle_info">
+        toSingle 操作符可以将一个发射单个值的 Observable 转换为一个 Single。 如果原始 Observable 会发送多个值，Single 将会发出 onError 通知。
+    </string>
+
+    <string name="str_mainlist_Observable_toSortedList_info">
+        toSortedList 操作符类似于 toList，不同的是它会对产生的列表排序，默认是自然升序，如果发射的数据项没有实现Comparable接口，会抛出一个异常。
+        然而，你也可以传递一个函数作为用于比较两个数据项，此时 toSortedList 不会使用 Comparable 接口。
+        toSortedList 默认不在任何特定的调度器上执行。
+    </string>
+
+    <string name="str_mainlist_Observable_unsafeSubscribe_info">
+        unsafeSubscribe 操作符就像字面意思一样，是一个不安全的订阅操作，因为该函数不会因为源 Observable 的 onError 或 onCompleted 而自动取消订阅。
+        所以这个操作符几乎没用，它应该仅仅在自定义操作函数中处理嵌套订阅的情况。前面也有例子说到，如果要避免这种操作符接受到不合法的数据流，我们可以用 serialize 操作符。
+    </string>
+
+    <string name="str_mainlist_Observable_unsubscribeOn_info">
+        unsubscribeOn 操作符可以让 unsubscribe 在指定的调度器上执行。
+    </string>
+
+    <string name="str_mainlist_Observable_using_info">
+        using 操作符让你可以指示 Observable 创建一个只在它的生命周期内存在的资源，当 Observable 终止时这个资源会被自动释放。
+    </string>
+
+    <string name="str_mainlist_Observable_window_info">
+        window 操作符会定期将来自原始 Observable 的数据分解为一个 Observable 窗口，发射这些窗口，而不是每次发射一项数据。
+        window 和 buffer 类似，但不是发射来自原始 Observable 的数据包，它发射的是 Observables，这些 Observables 中的每一个都发射原始 Observable 数据的一个子集，最后发射一个 onCompleted 通知。
+        和 buffer 一样，window 有很多变体，每一种都以自己的方式将原始 Observable 分解为多个作为结果的 Observable，每一个都包含一个映射原始数据的 window。
+        用 window 操作符的术语描述就是，当一个窗口打开(when a window "opens")意味着一个新的 Observable 已经发射（产生）了，而且这个 Observable 开始发射来自原始Observable的数据；
+        当一个窗口关闭(when a window "closes")意味着发射(产生)的 Observable 停止发射原始 Observable 的数据，并且发射终止通知 onCompleted 给它的观察者们。
+    </string>
+
+    <string name="str_mainlist_Observable_withLatestFrom_info">
+        withLatestFrom 操作符类似于 combineLatest，但是只在单个原始 Observable 发射了一条数据时才发射数据。目前还是 Experimental 版本。
+    </string>
+
+    <string name="str_mainlist_Observable_zip_info">
+        zip 操作符返回一个 Obversable，它使用这个函数按顺序结合两个或多个 Observables 发射的数据项，然后它发射这个函数返回的结果。
+        它按照严格的顺序应用这个函数。它只发射与发射数据项最少的那个 Observable 一样多的数据。
+    </string>
+
+    <string name="str_mainlist_Observable_zipWith_info">
+        zipWith 操作符和 zip 类似，但是 zipWith 是以链式的结构逐个合并。
+    </string>
 
 
 
