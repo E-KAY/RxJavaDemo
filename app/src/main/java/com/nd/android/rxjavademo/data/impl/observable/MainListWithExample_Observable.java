@@ -20,8 +20,8 @@ import rx.Observable;
  */
 public abstract class MainListWithExample_Observable<T> implements IMainListWithExampleData {
 
-    protected HashMap<Integer, Integer> mRequestMap = new HashMap<>();
-    protected List<Observable<T>> mExampleList = new ArrayList<>();
+    private HashMap<Integer, Integer> mRequestMap = new HashMap<>();
+    private List<Observable<T>> mExampleList = new ArrayList<>();
 
     @Override
     public void starActivity(Context context) {
@@ -69,24 +69,4 @@ public abstract class MainListWithExample_Observable<T> implements IMainListWith
     public Observable<T> getSubjectAsObservable() {
         return null;
     }
-
-
-//    @Override
-//    public int compareTo(@NonNull Object another) {
-//        if (!(another instanceof IMainListData)) {
-//            return 1;
-//        }
-//        IMainListData anotherData = (IMainListData) another;
-//
-//        int result;
-//        if (this.getSubTitle() > anotherData.getSubTitle()) {
-//            result = 1;
-//        } else if (this.getSubTitle() < anotherData.getSubTitle()) {
-//            result = -1;
-//        } else {
-//            result = 0;
-//        }
-//        Log.e("HYK", "result = " + result + " , this.getSubTitle() = " + this.getSubTitle() + " , anotherData.getSubTitle() = " + anotherData.getSubTitle());
-//        return result;
-//    }
 }
