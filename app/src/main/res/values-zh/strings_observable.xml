@@ -555,7 +555,7 @@
     </string>
 
     <string name="str_mainlist_Observable_zipWith_info">
-        zipWith 操作符和 zip 类似，但是 zipWith 是以链式的结构逐个合并。
+        zipWith 操作符和 zip 类似，但是 zipWith 是以链式写法逐个拼凑想要合并的对象。
     </string>
 
 
