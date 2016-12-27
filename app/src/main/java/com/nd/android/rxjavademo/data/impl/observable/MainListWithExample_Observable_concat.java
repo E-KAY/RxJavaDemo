@@ -2,8 +2,12 @@ package com.nd.android.rxjavademo.data.impl.observable;
 
 import com.nd.android.rxjavademo.R;
 
+import java.util.ArrayList;
+
 import rx.Observable;
 import rx.Subscriber;
+import rx.functions.Action2;
+import rx.functions.Func0;
 import rx.functions.Func1;
 
 /**
@@ -17,6 +21,7 @@ public class MainListWithExample_Observable_concat extends MainListWithExample_O
     public MainListWithExample_Observable_concat() {
         addExample(example1());
         addExample(example2());
+        addExample(example3());
     }
 
     @Override
@@ -45,6 +50,21 @@ public class MainListWithExample_Observable_concat extends MainListWithExample_O
 
     private Observable example2() {
         return Observable.concat(getNameFromMemory(), getNameFromDb(), getNameFromNet()).first();
+    }
+
+    private Observable example3() {
+        return Observable.concat(getNameFromMemory(), getNameFromDb(), getNameFromNet())
+                .collect(new Func0<ArrayList<String>>() {
+                    @Override
+                    public ArrayList<String> call() {
+                        return new ArrayList<>();
+                    }
+                }, new Action2<ArrayList<String>, String>() {
+                    @Override
+                    public void call(ArrayList<String> strings, String s) {
+                        strings.add(s);
+                    }
+                });
     }
 
     private Observable<String> getNameFromMemory() {
