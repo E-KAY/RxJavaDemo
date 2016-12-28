@@ -239,6 +239,10 @@
         ]]>
     </string>
 
+    <string name="str_mainlist_Observable_defer_info">
+        Returns an Observable that calls an Observable factory to create an Observable for each new Observer that subscribes.
+    </string>
+
     <string name="str_mainlist_Observable_dematerialize_info">
         Returns an Observable that reverses the effect of materialize by transforming the
         Notification objects emitted by the source Observable into the items or notifications they represent.
